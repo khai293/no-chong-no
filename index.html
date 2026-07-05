@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Nợ Chồng Nợ — Trinh thám hài hước</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Patrick+Hand&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div id="stage">
+  <!-- Thế giới top-down -->
+  <canvas id="world" width="1280" height="720"></canvas>
+
+  <!-- Nền cảnh khi hội thoại -->
+  <div id="vnbg" class="hidden"></div>
+
+  <!-- HUD -->
+  <div id="hud" class="hidden">
+    <div class="hud-box" id="hud-dr" title="Điểm Rắc Rối — càng cao càng loạn">
+      <span class="hud-ic">⚡</span>
+      <div class="meter dr"><div class="fill" id="drFill"></div></div>
+      <span class="hud-num" id="drNum">20</span>
+      <span class="hud-lb">RẮC RỐI</span>
+    </div>
+    <div class="hud-box" id="hud-trust" title="Chỉ số tin tưởng giữa hai người">
+      <span class="hud-ic">💗</span>
+      <div class="meter trust"><div class="fill" id="trustFill"></div></div>
+      <span class="hud-num" id="trustNum">30%</span>
+      <span class="hud-lb">TIN TƯỞNG</span>
+    </div>
+    <div class="hud-box" id="hud-money" title="Tài chính (đơn vị: triệu đồng)">
+      <span class="hud-ic">💸</span>
+      <b id="moneyNum">-200tr</b>
+    </div>
+  </div>
+
+  <!-- Nhiệm vụ hiện tại -->
+  <div id="quest" class="hidden"><span id="questIc">🎯</span><span id="questTx"></span></div>
+
+  <!-- Lớp Visual Novel -->
+  <div id="vn" class="hidden">
+    <div id="pL" class="portrait left"></div>
+    <div id="pR" class="portrait right"></div>
+    <div id="dbox">
+      <div id="dname">???</div>
+      <div id="dtext"></div>
+      <div id="dnext">▼</div>
+    </div>
+    <div id="choices" class="hidden"></div>
+  </div>
+
+  <!-- Cắt cảnh kiểu truyện tranh -->
+  <div id="panels" class="hidden"></div>
+
+  <!-- Minigame -->
+  <div id="mg" class="hidden"></div>
+
+  <!-- Thẻ tiêu đề chương -->
+  <div id="titleCard" class="hidden"></div>
+
+  <!-- Thông báo nổi -->
+  <div id="toasts"></div>
+
+  <!-- Chuyển cảnh sọc chéo -->
+  <div id="wipe"></div>
+
+  <!-- Màn hình chính -->
+  <div id="title">
+    <div id="titleSky"></div>
+    <div id="titleCity"></div>
+    <div id="titleBills"></div>
+    <div id="titleChars"></div>
+    <div id="titleBox">
+      <div id="logoWrap">
+        <div id="logoSub">TRINH THÁM &nbsp;•&nbsp; HÀI HƯỚC &nbsp;•&nbsp; TÌNH CẢM</div>
+        <h1 id="logo">NỢ<span>CHỒNG</span>NỢ</h1>
+        <div id="logoStamp">một quả thận đã ra đi vì game này</div>
+      </div>
+      <div id="nameEntry" class="hidden">
+        <label for="nameInput">Tên của bạn (nữ chính):</label>
+        <input id="nameInput" maxlength="12" placeholder="Châu" autocomplete="off">
+        <button id="nameGo" class="big-btn">BẮT ĐẦU CHUỖI NỢ ➜</button>
+      </div>
+      <div id="titleMenu">
+        <button id="btnNew" class="big-btn">🎮 Chơi mới</button>
+        <button id="btnContinue" class="big-btn alt hidden">💾 Chơi tiếp</button>
+      </div>
+      <div id="titleHint">Di chuyển: WASD / phím mũi tên &nbsp;•&nbsp; Tương tác: E hoặc chạm</div>
+    </div>
+  </div>
+
+  <!-- Màn hình kết thúc -->
+  <div id="ending" class="hidden"></div>
+
+  <!-- Điều khiển cảm ứng -->
+  <div id="touch" class="hidden">
+    <div id="joy"><div id="joyKnob"></div></div>
+    <button id="btnAct">E</button>
+  </div>
+
+  <button id="muteBtn" title="Bật/tắt âm thanh">🔊</button>
+</div>
+
+<script src="js/sprites.js"></script>
+<script src="js/engine.js"></script>
+<script src="js/world.js"></script>
+<script src="js/minigames.js"></script>
+<script src="js/story.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
