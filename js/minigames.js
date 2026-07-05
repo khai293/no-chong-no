@@ -625,4 +625,246 @@ karaoke(opts, cb){
   }
   MG._raf = requestAnimationFrame(loop);
 },
+
+/* ============== 8. NƯỚNG BÒ NHÀ HÀNG ============== */
+grill(opts, cb){
+  const body = MG.frame(opts.title || '🥩 BẾP NƯỚNG "PHỐ ĐÊM"',
+    'Nhấp miếng bò khi vòng canh chuyển XANH LÁ! Đừng để cháy!',
+    `<div class="mg-bar-wrap"><span>🍽️ PHỤC VỤ</span><div class="mg-bar"><div class="fill" id="srvFill" style="width:0%;background:linear-gradient(90deg,#4cc9f0,#2ec4b6)"></div></div></div>
+     <div class="mg-timer" id="grTime">60</div>
+     <canvas class="mg-canvas" id="mgCv"></canvas>`);
+  const cv = $('mgCv');
+  cv.width = body.clientWidth; cv.height = body.clientHeight;
+  const g = cv.getContext('2d');
+  const W = cv.width, H = cv.height;
+  const need = opts.need || 8, dur = opts.time || 60;
+  const SLOTS = [];
+  for(let r = 0; r < 2; r++) for(let c = 0; c < 3; c++)
+    SLOTS.push({x: W/2 - 250 + c*250, y: H/2 - 60 + r*170, steak: null});
+  let time = dur, served = 0, burnt = 0, over = false, spawnT = 0, plates = [];
+  AudioSys.music('cooking');
+  MG.msg('LÊN THỚT!! 🔥', 1300);
+
+  function spawn(){
+    const empty = SLOTS.filter(s => !s.steak);
+    if(!empty.length) return;
+    const s = empty[randInt(0, empty.length - 1)];
+    s.steak = {done: 0, flare: 0};
+  }
+  spawn(); spawn(); spawn();
+
+  function onClick(e){
+    if(over) return;
+    const r = cv.getBoundingClientRect();
+    const mx = (e.clientX - r.left) * (W / r.width);
+    const my = (e.clientY - r.top) * (H / r.height);
+    for(const s of SLOTS){
+      if(!s.steak) continue;
+      if(Math.hypot(s.x - mx, s.y - my) < 72){
+        const d = s.steak.done;
+        if(d >= 50 && d <= 88){
+          served++; plates.push({x: s.x, y: s.y, t: 0});
+          s.steak = null;
+          $('srvFill').style.width = Math.min(100, served/need*100) + '%';
+          AudioSys.sfx('ding');
+        } else if(d < 50){
+          AudioSys.sfx('bad');
+          Toast('🥩 Còn sống nhăn! Khách kiện đó!', 'bad');
+        } else {
+          s.steak = null; burnt++;
+          AudioSys.sfx('bad');
+          Toast('🔥 Cháy khét! Bỏ thùng rác!', 'bad');
+        }
+        return;
+      }
+    }
+  }
+  cv.addEventListener('pointerdown', onClick);
+  MG._cleanup = () => cv.removeEventListener('pointerdown', onClick);
+
+  let last = performance.now();
+  function loop(now){
+    const dt = Math.min(0.05, (now - last) / 1000); last = now;
+    if(!over){
+      time -= dt;
+      $('grTime').textContent = Math.ceil(time);
+      spawnT -= dt;
+      if(spawnT <= 0){ spawn(); spawnT = rand(2.2, 3.2); }
+      for(const s of SLOTS){
+        if(!s.steak) continue;
+        const st = s.steak;
+        if(st.flare > 0) st.flare -= dt;
+        else if(Math.random() < dt*0.05) st.flare = 1.4;
+        st.done += dt * (100/10) * (st.flare > 0 ? 1.8 : 1);
+        if(st.done >= 100){
+          s.steak = null; burnt++;
+          AudioSys.sfx('bad'); stageFX('flash');
+          Toast('💀 Một miếng bò đã hy sinh!', 'bad');
+        }
+      }
+      plates = plates.filter(p => (p.t += dt) < 0.8);
+      if(served >= need){ over = true;
+        cb({success: true, served, burnt, winText: 'BẾP TRƯỞNG MỚI LÀ ĐÂY! 👨‍🍳'}); return; }
+      if(time <= 0){ over = true;
+        cb({success: served >= Math.ceil(need*0.6), served, burnt,
+          winText: 'CA LÀM TẠM ỔN! 🍽️', loseText: 'KHÁCH ĐÓI BỎ VỀ... 😅'}); return; }
+    }
+    // nhà hàng
+    g.fillStyle = '#2a1c14'; g.fillRect(0, 0, W, H);
+    g.fillStyle = 'rgba(255,180,90,.08)';
+    for(let i = 0; i < 4; i++){ g.beginPath(); g.arc(W*(i+0.5)/4, 30, 60, 0, Math.PI*2); g.fill(); }
+    // vỉ nướng
+    g.fillStyle = '#3a3f47';
+    rrect(g, W/2 - 390, H/2 - 170, 780, 380, 24); g.fill();
+    g.strokeStyle = '#14161a'; g.lineWidth = 6; g.stroke();
+    g.strokeStyle = 'rgba(20,22,26,.85)'; g.lineWidth = 8;
+    for(let i = 0; i < 9; i++){
+      g.beginPath(); g.moveTo(W/2 - 370, H/2 - 150 + i*42); g.lineTo(W/2 + 370, H/2 - 150 + i*42); g.stroke();
+    }
+    for(const s of SLOTS){
+      if(!s.steak) continue;
+      const st = s.steak, d = st.done;
+      // màu thịt theo độ chín
+      const col = d < 55 ? `rgb(${226 - d}, ${90 - d*0.4}, ${100 - d*0.6})`
+        : d < 85 ? `rgb(${150 - (d-55)}, ${84 - (d-55)}, 48)`
+        : `rgb(${70 - (d-85)}, 40, 26)`;
+      g.fillStyle = col;
+      g.save();
+      g.translate(s.x, s.y);
+      g.rotate(Math.sin(s.x + s.y) * 0.2);
+      rrect(g, -52, -36, 104, 72, 22); g.fill();
+      g.strokeStyle = 'rgba(20,10,5,.6)'; g.lineWidth = 4; g.stroke();
+      g.strokeStyle = 'rgba(40,20,10,.5)'; g.lineWidth = 5;
+      g.beginPath(); g.moveTo(-34, -12); g.lineTo(34, -12); g.moveTo(-34, 12); g.lineTo(34, 12); g.stroke();
+      g.restore();
+      // vòng canh độ chín
+      g.lineWidth = 8;
+      g.strokeStyle = 'rgba(255,255,255,.22)';
+      g.beginPath(); g.arc(s.x, s.y, 62, 0, Math.PI*2); g.stroke();
+      g.strokeStyle = '#2ec4b6';
+      g.beginPath(); g.arc(s.x, s.y, 62, -Math.PI/2 + Math.PI*2*0.50, -Math.PI/2 + Math.PI*2*0.88); g.stroke();
+      g.strokeStyle = d < 50 ? '#ffd166' : d <= 88 ? '#3ef0b0' : '#ef476f';
+      g.beginPath(); g.arc(s.x, s.y, 62, -Math.PI/2, -Math.PI/2 + Math.PI*2*(d/100)); g.stroke();
+      // lửa bùng
+      if(st.flare > 0){
+        g.font = '38px sans-serif'; g.textAlign = 'center';
+        g.fillText('🔥', s.x, s.y - 66 + Math.sin(performance.now()/60)*4);
+      }
+      if(d > 85){
+        g.font = '26px sans-serif'; g.textAlign = 'center';
+        g.globalAlpha = .8;
+        g.fillText('💨', s.x + 30, s.y - 50 - (d-85));
+        g.globalAlpha = 1;
+      }
+    }
+    // đĩa bay lên khi phục vụ
+    g.font = '44px sans-serif'; g.textAlign = 'center';
+    for(const p of plates){
+      g.globalAlpha = 1 - p.t/0.8;
+      g.fillText('🍽️', p.x, p.y - p.t*90);
+      g.globalAlpha = 1;
+    }
+    g.fillStyle = '#fff8ef'; g.font = '800 22px "Baloo 2"'; g.textAlign = 'center';
+    g.fillText(`🍽️ ${served}/${need}   💀 cháy: ${burnt}`, W/2, H - 22);
+    if(!over) MG._raf = requestAnimationFrame(loop);
+  }
+  MG._raf = requestAnimationFrame(loop);
+},
+
+/* ============== 9. NUÔI KHỦNG LONG TRONG LAB ============== */
+dino(opts, cb){
+  const NEEDS = [
+    {ic:'🍖', label:'Cho ăn'},
+    {ic:'🚿', label:'Tắm rửa'},
+    {ic:'🎾', label:'Chơi cùng'},
+    {ic:'💤', label:'Ru ngủ'},
+  ];
+  const STAGES = ['🥚','🐣','🦕','🦖'];
+  const goal = opts.goal || 9;
+  const body = MG.frame(opts.title || '🧪 LAB KHỦNG LONG MINI',
+    'Bé cần gì thì bấm đúng nút đó — trước khi bé dỗi!',
+    `<div class="mg-bar-wrap"><span>🌱 TRƯỞNG THÀNH</span><div class="mg-bar"><div class="fill" id="growFill" style="width:0%;background:linear-gradient(90deg,#a8e063,#2ec4b6)"></div></div></div>
+     <div style="position:absolute;inset:44px 0 0 0;display:flex;flex-direction:column;align-items:center;justify-content:center">
+       <div style="font-size:26px;opacity:.55">⚗️ 🧪 🔬 🧫 ⚗️</div>
+       <div id="dnTank" style="width:340px;height:300px;border:5px solid var(--ink);border-radius:26px;
+         background:linear-gradient(180deg,#d6f4ff,#9fdcf0);position:relative;display:flex;
+         align-items:center;justify-content:center;box-shadow:var(--shadow)">
+         <div id="dnPet" style="font-size:96px;transition:font-size .4s;animation:bob 1.6s infinite">🥚</div>
+         <div id="dnNeed" class="hidden" style="position:absolute;top:-26px;left:50%;transform:translateX(-50%);
+           background:#fff;border:3px solid var(--ink);border-radius:999px;padding:6px 18px;
+           font-size:30px;box-shadow:var(--shadow)"></div>
+         <div id="dnMood" style="position:absolute;right:10px;bottom:8px;font-size:24px"></div>
+       </div>
+       <div id="dnBtns" style="display:flex;gap:14px;margin-top:16px">
+         ${NEEDS.map((n,i) => `<button class="mg-btn plain" data-i="${i}">${n.ic}<br><small style="font-size:13px">${n.label}</small></button>`).join('')}
+       </div>
+     </div>`);
+  let grow = 0, stress = 0, need = -1, needT = 0, over = false, idleT = 1.2;
+  const pet = $('dnPet'), bubble = $('dnNeed'), mood = $('dnMood');
+  AudioSys.music('cute');
+  MG.msg('BÉ SẮP NỞ RỒI! 🥚', 1300);
+
+  function stage(){ return STAGES[Math.min(3, Math.floor(grow / (goal/3)))]; }
+  function refresh(){
+    pet.textContent = stage();
+    pet.style.fontSize = (96 + grow*6) + 'px';
+    $('growFill').style.width = Math.min(100, grow/goal*100) + '%';
+    mood.textContent = '💢'.repeat(stress);
+  }
+  function newNeed(){
+    need = randInt(0, NEEDS.length - 1);
+    needT = Math.max(2.6, 4.2 - grow*0.15);
+    bubble.textContent = NEEDS[need].ic + ' ‼️';
+    bubble.classList.remove('hidden');
+  }
+  function miss(){
+    stress++; need = -1;
+    bubble.classList.add('hidden');
+    idleT = 1.0;
+    AudioSys.sfx('bad');
+    pet.classList.remove('hud-pulse'); void pet.offsetWidth; pet.classList.add('hud-pulse');
+    if(stress >= 4 && !over){
+      over = true;
+      cb({success: false, grow, loseText: 'BÉ DỖI, TRỐN VÀO ỐNG NGHIỆM... 🥺'});
+    }
+  }
+  body.querySelectorAll('#dnBtns button').forEach(b => {
+    b.onclick = () => {
+      if(over) return;
+      const i = +b.dataset.i;
+      if(need === -1){ return; }
+      if(i === need){
+        grow++; need = -1;
+        bubble.classList.add('hidden');
+        idleT = rand(0.8, 1.6);
+        AudioSys.sfx('ding');
+        refresh();
+        if(grow >= goal && !over){
+          over = true;
+          stageFX('flash');
+          cb({success: true, grow, winText: 'TRƯỞNG THÀNH RỰC RỠ! 🦖✨'});
+        }
+      } else miss();
+    };
+  });
+  refresh();
+
+  let last = performance.now();
+  function loop(now){
+    const dt = Math.min(0.05, (now - last)/1000); last = now;
+    if(!over){
+      if(need === -1){
+        idleT -= dt;
+        if(idleT <= 0) newNeed();
+      } else {
+        needT -= dt;
+        bubble.style.transform = 'translateX(-50%) scale(' + (1 + Math.sin(now/120)*0.08) + ')';
+        if(needT <= 0) miss();
+      }
+    }
+    if(!over) MG._raf = requestAnimationFrame(loop);
+  }
+  MG._raf = requestAnimationFrame(loop);
+  MG._cleanup = () => {};
+},
 };

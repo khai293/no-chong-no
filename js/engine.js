@@ -359,6 +359,7 @@ const AudioSys = {
   toggle(){
     this.muted = !this.muted;
     if(this.master) this.master.gain.value = this.muted ? 0 : 0.55;
+    if(this._curAudio) this._curAudio.volume = this.muted ? 0 : this.MUSIC_VOL;
     $('muteBtn').textContent = this.muted ? '🔇' : '🔊';
   },
 
@@ -466,14 +467,42 @@ const AudioSys = {
     },
   },
 
+  /* nhạc file thật (Kevin MacLeod, CC-BY) — synth chỉ là dự phòng khi file lỗi */
+  FILES: {lofi:1, tense:1, night:1, sad:1, comedy:1, love:1, mystery:1, boss:1, cute:1, cooking:1},
+  _audios: {}, _curAudio: null, _failed: {},
+  MUSIC_VOL: 0.5,
+
   music(name){
     if(name === this.curTrack) return;
     this.curTrack = name;
     clearInterval(this.schedTimer);
     this.schedTimer = null;
+    if(this._curAudio){ this._curAudio.pause(); this._curAudio = null; }
     if(!name) return;
+    if(this.FILES[name] && !this._failed[name]){
+      let a = this._audios[name];
+      if(!a){
+        a = new Audio('music/' + name + '.mp3');
+        a.loop = true;
+        a.preload = 'auto';
+        a.onerror = () => {
+          this._failed[name] = true;
+          if(this.curTrack === name){ this._curAudio = null; this._synth(name); }
+        };
+        this._audios[name] = a;
+      }
+      a.volume = this.muted ? 0 : this.MUSIC_VOL;
+      this._curAudio = a;
+      const p = a.play();
+      if(p && p.catch) p.catch(() => {}); // autoplay bị chặn — mở khóa ở pointerdown
+      return;
+    }
+    this._synth(name);
+  },
+
+  _synth(name){
     if(!this.ensure()) return;
-    const tr = this.TRACKS[name]; if(!tr) return;
+    const tr = this.TRACKS[name] || this.TRACKS.comedy; if(!tr) return;
     this.stepIdx = 0;
     let nextT = this.ctx.currentTime + 0.1;
     const stepDur = 60 / tr.bpm / 2; // nốt 1/8
@@ -494,10 +523,11 @@ const AudioSys = {
 };
 
 $('muteBtn').addEventListener('click', () => { AudioSys.ensure(); AudioSys.toggle(); });
-document.addEventListener('pointerdown', function once(){
+document.addEventListener('pointerdown', () => {
   AudioSys.ensure();
   if(AudioSys.ctx && AudioSys.ctx.state === 'suspended') AudioSys.ctx.resume();
-  document.removeEventListener('pointerdown', once);
+  const a = AudioSys._curAudio;
+  if(a && a.paused && !AudioSys.muted) a.play().catch(() => {});
 });
 
 /* ---------------- BÀN PHÍM CHUNG ---------------- */

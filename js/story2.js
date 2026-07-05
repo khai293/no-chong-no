@@ -27,11 +27,11 @@ m1_mom: [
   {bg:'hospital'}, {music:'love'},
   {who:'me', expr:'shock', text:'Ơ con gái?! Sao con biết mẹ ở đây? Mẹ dặn con Hồng giấu kỹ rồi mà!'},
   {who:'chau', expr:'cry', text:'MẸ! Mẹ đau tim mà còn bày đặt giấu con?!'},
-  {who:'me', expr:'normal', text:'Có gì đâu mà rối. Tim mẹ chỉ... hơi mỏi thôi. Máy chạy 58 năm, xuống cấp là đúng quy trình. Bảo hành hết lâu rồi.'},
+  {who:'me', expr:'normal', text:'Có gì đâu mà rối. Tim mẹ chỉ... hơi mỏi thôi. Máy chạy lâu năm, xuống cấp là đúng quy trình. Bảo hành hết từ đời nào rồi.'},
   {who:'chau', expr:'angry', text:'Thế BỐ đâu?! Thằng Tí đâu?! Cả nhà không ai báo con một tiếng!'},
-  {who:'me', expr:'smug', text:'Mẹ giấu CẢ NHÀ chứ riêng gì con. Bố mày đang chạy chuyến xe khách Bắc – Nam, biết tin lại quay đầu xe giữa đèo thì khổ cả xe khách. Còn thằng Tí tuần sau thi thử lớp 12 — nó mà biết là mượn cớ nghỉ học liền, nó chỉ chờ có thế thôi.'},
+  {who:'me', expr:'smug', text:'Mẹ giấu CẢ NHÀ chứ riêng gì con. Bố mày đang đi xa, biết tin lại tất tả bỏ hết mọi thứ chạy về thì khổ. Còn thằng Tí sắp thi — nó mà biết là mượn cớ nghỉ học liền, nó chỉ chờ có thế thôi.'},
   {who:'chau', expr:'dizzy', text:'Mẹ nằm giường bệnh mà điều phối thông tin cả nhà như trung tâm tình báo vậy...'},
-  {who:'me', expr:'normal', text:'Làm mẹ 26 năm, làm vợ thợ máy 28 năm — không có nghiệp vụ sao sống nổi con.'},
+  {who:'me', expr:'normal', text:'Làm mẹ ngần ấy năm — không có nghiệp vụ thì sao sống nổi với ba bố con nhà mày.'},
   {who:'me', expr:'think', text:'Khoan đã. Cậu nào đứng nép sau cánh cửa kia? Cao ráo, sáng sủa... Con ơi, đây là...?'},
   {choice:[
     {ic:'😇', label:'"Bạn... làm ăn chung của con ạ."', trust:3, reply:[
@@ -64,10 +64,10 @@ m1_leave: [
   {who:'khai', expr:'normal', text:'Cháu hứa với bác. Bằng cả quả thận còn lại của cháu.'},
   {who:'me', expr:'laugh', text:'Cháu này nói chuyện duyên ghê! Ai đời thề bằng thận!'},
   {who:'sys', text:'(Bác ơi. Đó không phải phép ẩn dụ đâu ạ. Đó là tài sản thật sự cuối cùng của cậu ấy đó ạ.)'},
-  {who:'me', expr:'normal', text:'Khi nào rảnh thì ghé nhà ăn cơm. Nhưng khoan hẵng gặp bố con bé nha cháu. Ông ấy hiền khô à... trừ những lúc trên tay có cờ lê.'},
-  {who:'khai', expr:'worried', text:'D-dạ. Cháu sẽ chọn hôm nào bác trai không sửa xe ạ.'},
-  {who:'me', expr:'gloom', text:'Ông ấy là THỢ MÁY, cháu ơi. Ngày nào tay cũng có cờ lê.'},
-  {who:'khai', expr:'dizzy', text:'(Ghi chú sinh tồn: mua quà ra mắt là bộ cờ lê xịn. Đồng nghiệp không đánh đồng nghiệp.)'},
+  {who:'me', expr:'normal', text:'Khi nào rảnh thì ghé nhà ăn cơm. Nhưng chuẩn bị tinh thần khi gặp bố con bé nha cháu. Ông ấy hiền khô à... mỗi tội thương con gái nhất nhà.'},
+  {who:'khai', expr:'worried', text:'D-dạ. Cháu sẽ... tập trả lời phỏng vấn trước ạ.'},
+  {who:'me', expr:'gloom', text:'Tập kỹ vào. Ổng chỉ hỏi đúng một câu thôi: "Cậu định để con gái tôi khổ tới bao giờ?"'},
+  {who:'khai', expr:'dizzy', text:'(Ghi chú sinh tồn: câu này không trả lời được bằng thống kê. Phải trả lời bằng cả đời.)'},
   {who:'me', expr:'normal', text:'Con gái. Cầm lấy. 500 nghìn — tiền mẹ giấu trong hộp dầu gió. Đừng cãi. Mẹ già rồi, cãi thua là mệt tim, con muốn mẹ mệt tim không?'},
   {who:'chau', expr:'cry', text:'Mẹ dùng bệnh án để THẮNG CÃI NHAU?! ...Mẹ giữ mà mua cháo! Con sắp giàu rồi! Con có rất nhiều dự án!'},
   {who:'me', expr:'smug', text:'Ừ. Mẹ tin. Như mẹ đã từng tin 17 tờ đơn xin việc của con đều "sắp được nhận".'},
@@ -204,13 +204,13 @@ l1_mom: [
   {who:'me', expr:'normal', text:'Còn cậu. "Chuyên gia tài chính" hả? Bác biết hết rồi. Biết cả... vụ cái thận. Con Hồng kể. Nó kể có nhạc nền luôn.'},
   {who:'khai', expr:'gloom', text:'Bác... cháu xin lỗi. Vì đã nói dối bác ngay lần đầu gặp mặt.'},
   {who:'me', expr:'normal', text:'Vụ nói dối — bác giận. Nhưng vụ một thằng con trai định bán nốt quả thận cuối cùng để lo viện phí cho một bà già KHÔNG PHẢI mẹ nó... bác giận không nổi. Cái đó người ta gọi là gì hả trời. À. Là NGHĨA. Chữ đó giờ hiếm lắm.'},
-  {who:'me', expr:'gloom', text:'Nhà bác bốn người: ông thợ máy suốt ngày ôm cờ lê, thằng Tí ôm sách luyện thi, con bé này thì ôm... nợ. Bác không cần thêm một đứa giàu. Bác chỉ cần thêm một đứa — lúc nhà cháy không chạy trước.'},
+  {who:'me', expr:'gloom', text:'Nhà bác bốn người — ai cũng ôm khư khư một thứ: bố nó ôm cái đài cũ, thằng Tí ôm đống sách, còn con bé này thì ôm... nợ. Bác không cần thêm một đứa giàu. Bác chỉ cần thêm một đứa — lúc nhà cháy không chạy trước.'},
   {who:'khai', expr:'normal', text:'Cháu cam kết chạy sau cùng ạ. Có gì cháu cõng — cháu quen việc đó rồi.'},
   {who:'me', expr:'laugh', text:'Ừ, nghe đồn cõng giỏi lắm. Thời sự quay rõ nét lắm. Chạy cũng nhanh nữa.'},
   {who:'khai', expr:'worried', text:'Thế... bác trai cũng xem đoạn đó rồi ạ?'},
   {who:'me', expr:'smug', text:'Xem đi xem lại ba lần. Xong phán đúng một câu: "Chân cẳng tốt. Cõng không làm rơi. Làm rể được." Tiêu chí chọn rể của ổng đơn giản lắm.'},
   {who:'khai', expr:'dizzy', text:'Cháu vừa đậu vòng hồ sơ nhờ... tốc độ bỏ chạy?'},
-  {who:'me', expr:'normal', text:'Còn thằng Tí thì đòi xin chữ ký "chị đại trên tivi" kìa. Nó khoe khắp lớp: "chị tao ngầu nhất phường".'},
+  {who:'me', expr:'normal', text:'Còn thằng Tí thì đòi xin chữ ký "chị đại trên tivi" kìa. Nó khoe khắp xóm: "chị tao ngầu nhất phường".'},
   {who:'chau', expr:'worried', text:'Mẹ ơi con xin cả nhà đừng hâm mộ kỹ năng phạm tội của tụi con nữa...'},
   {who:'me', expr:'normal', text:'Thôi. Bán cho mẹ 3 ly cà phê. Tính tiền đầy đủ. Khởi nghiệp mà — đồng đầu tiên phải là đồng tử tế.'},
   {do:()=>{ Game.addTrust(8); Game.addMoney(1, 'mẹ mua mở hàng 3 ly (boa thêm)'); }},
@@ -485,6 +485,12 @@ b2_found: [
         else Game.addDR(5, 'khách tưởng quán bán đồ hóa trang');
       }},
       {vn:'l1_day'},
+      {vn:'l2_bbq'},
+      {mg:'grill', opts:{need:8, time:60}, after(res){
+        if(res.success){ Game.addMoney(30, 'lương đứng bếp một đêm'); Game.addDR(-3, 'khách khen nức nở'); }
+        else { Game.addMoney(10, 'lương bị trừ tiền bò cháy'); Game.addDR(8, 'suýt thiêu rụi khu bếp'); }
+      }},
+      {vn:'l2_bbq_end'},
       {vn:'l1_mom'},
   ]};
 
@@ -584,8 +590,54 @@ b2_found: [
         if(res.success) Game.addTrust(5);
         else { Game.addTrust(3); Toast('🎵 Hát dở mà vui — thế mới là hẹn hò', 'good'); }
       }},
+      {vn:'d2_lab'},
+      {mg:'dino', opts:{goal:9}, after(res){
+        if(res.success) Game.addTrust(6);
+        else { Game.addTrust(2); Game.addDR(5, 'Nợ Con dỗi, cắn thủng biển hiệu lab'); }
+      }},
+      {vn:'d2_lab_end'},
       {vn:'d1_sunset'},
   ]};
+
+  /* ---- cảnh bổ sung: bếp nướng & lab khủng long ---- */
+  Object.assign(STORY.scenes, {
+    l2_bbq: [
+      {bg:'cafe'}, {music:'comedy'},
+      {who:'batu', expr:'normal', text:'Ê hai đứa thua lỗ! Cơ hội gỡ vốn đây: nhà hàng "BÒ NƯỚNG PHỐ ĐÊM" tối nay thiếu người đứng bếp gấp — đầu bếp chính vừa trúng số, đang đứng giữa quán xé tạp dề tuyên bố nghỉ việc.'},
+      {who:'chau', expr:'shock', text:'Rồi sao bà lại nghĩ ngay tới TỤI CON? Con nướng cơm còn khét mà!'},
+      {who:'batu', expr:'smug', text:'Vì chủ quán trả 30 triệu một đêm và KHÔNG HỎI KINH NGHIỆM. Đúng phân khúc của tụi bây còn gì.'},
+      {who:'khai', expr:'smug', text:'Để anh. Anh từng xem 400 video nướng bò. Về mặt lý thuyết, anh là bậc thầy.'},
+      {who:'chau', expr:'gloom', text:'Về mặt lý thuyết, anh cũng từng là chuyên gia tài chính đấy.'},
+      {who:'sys', text:'Và thế là hai kẻ khởi nghiệp thất bại khoác tạp dề, bước vào căn bếp chuyên nghiệp đầu tiên trong đời...'},
+    ],
+    l2_bbq_end: [
+      {bg:'cafe'}, {music:'comedy'},
+      {who:'sys', text:'Cuối ca, cả nhà hàng đứng dậy vỗ tay. Không rõ vì miếng bò... hay vì tinh thần "cháy hết mình" theo đúng nghĩa đen của căn bếp.'},
+      {who:'khai', expr:'happy', text:'Thấy chưa! 400 video không phản bội anh!'},
+      {who:'chau', expr:'normal', text:'Anh làm cháy đúng MỘT miếng. Và anh đã ăn nó để phi tang. Tôi thấy hết rồi nhé.'},
+      {who:'khai', expr:'gloom', text:'Đó gọi là quy trình kiểm soát chất lượng nội bộ.'},
+    ],
+    d2_lab: [
+      {bg:'night'}, {music:'cute'},
+      {who:'sys', text:'Trên đường về, hai người đi ngang một cánh cửa mới toanh ở chợ đen: "PHÒNG THÍ NGHIỆM KHỦNG LONG MINI — trải nghiệm làm bố mẹ trong 10 phút, 50 nghìn/lượt".'},
+      {who:'bacsi', expr:'happy', text:'Ơ, hai đứa! Vào chơi không? Nghề tay trái mới của tôi đây. Khoa học... giải trí. Hoàn toàn hợp pháp. Tương đối.'},
+      {who:'chau', expr:'shock', text:'Bác sĩ. Đây. Là. TRỨNG GÌ?'},
+      {who:'bacsi', expr:'think', text:'Quy tắc chợ đen, cô quên rồi à? KHÔNG. HỎI. NGUỒN. GỐC. Cứ coi là "gà biến dị thân thiện" đi cho dễ ngủ.'},
+      {who:'khai', expr:'normal', text:'Tôi thấy nó giống khủng long.'},
+      {who:'bacsi', expr:'gloom', text:'Thì tôi có cãi đâu. Rồi — hai người nuôi thử một bé. Cho ăn, tắm rửa, chơi cùng, ru ngủ. Đủ yêu thương là nó lớn. Y như người thật, chỉ nhanh hơn và... nhiều răng hơn.'},
+      {who:'chau', expr:'sparkle', text:'Đặt tên bé là NỢ CON nha! Vì bé là con của hai đứa đang gánh nợ!'},
+      {who:'khai', expr:'dizzy', text:'Logic đặt tên của em khiến anh vừa muốn cười vừa muốn đi trả nợ ngay lập tức.'},
+    ],
+    d2_lab_end: [
+      {bg:'night'}, {music:'cute'},
+      {who:'bacsi', expr:'shock', text:'Nó... nó quấn hai người quá rồi. Bình thường tụi nó chỉ quấn cái máy ấp thôi! Thôi vậy — mang về nuôi đi. Phí chuyển giao: 2 triệu, kèm sách hướng dẫn tôi viết tay.'},
+      {do:()=>{ Game.addMoney(-2, 'phí "nhận con nuôi" bé Nợ Con'); }},
+      {who:'chau', expr:'love', text:'Lều mình có thành viên mới rồi!! Nợ Con ơi chào bố mẹ đi con!!'},
+      {who:'khai', expr:'worried', text:'Khoan đã. Nó ăn gì? Ăn bao nhiêu? MỘT NGÀY MẤY BỮA?'},
+      {who:'bacsi', expr:'normal', text:'Trang một của sách: "Bé ăn mọi thứ. Kể cả hóa đơn." Chúc hai người may mắn.'},
+      {who:'khai', expr:'sparkle', text:'KHOAN. NÓ ĂN HÓA ĐƠN?! Đây là sinh vật hữu ích nhất tôi từng gặp trong đời!!'},
+    ],
+  });
 
   /* thứ tự mới: 14 chương */
   const f = STORY.flow;

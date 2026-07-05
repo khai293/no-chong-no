@@ -23,7 +23,12 @@ Cả hai trắng tay — và giờ bị ràng buộc vào nhau bởi... NỢ.
 | Thoại tiếp | Space / Enter / nhấp chuột |
 
 - **14 chương** với bản đồ 5 khu vực mở khóa dần — từ vụ cướp đầu tiên, thăm mẹ ở khoa tim mạch, đại chiến hội chủ nợ, vụ "quả thận cuối cùng"... đến arc trinh thám **"Hãy Nhắm Mắt Khi Anh Đến"** (khách mời: GS. Bạc Cận Ngôn & Quý Ngài Hoa Hồng)
-- **7 minigame**: canh cửa ngân hàng, chạy trốn, ký giấy thần tốc, hóa trang, đọc vị người nói dối, bảng suy luận, đêm nhạc karaoke
+- **9 minigame**: canh cửa ngân hàng, chạy trốn, ký giấy thần tốc, hóa trang, đọc vị người nói dối, bảng suy luận, đêm nhạc karaoke, nướng bò nhà hàng, nuôi khủng long trong lab
+
+## 🎵 Nhạc
+
+Nhạc nền trong game của **Kevin MacLeod** (incompetech.com), giấy phép [Creative Commons BY 4.0](https://creativecommons.org/licenses/by/4.0/):
+*Lobby Time, Run Amok, Backbay Lounge, Heartbreaking, Monkeys Spinning Monkeys, Wholesome, Sneaky Snitch, Volatile Reaction, Fluffing a Duck, Life of Riley.*
 - **3 kiểu thoại**: 😇 Thật thà / 😈 Bịa đặt / 🤡 Vô tình hài
 - **Điểm Rắc Rối** ⚡ + **Chỉ Số Tin Tưởng** 💗 quyết định **4 kết thúc** khác nhau
 
