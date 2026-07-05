@@ -9,6 +9,29 @@ const KIDNEY = `<svg viewBox="0 0 64 64" style="height:1.05em;vertical-align:-0.
   <path d="M26 42 Q31 47 36 42" stroke="#2a2333" stroke-width="3" fill="none" stroke-linecap="round"/>
 </svg>`;
 
+/* ---------- phần thưởng quest ẩn: trang phục & thú cưng ---------- */
+const SKINS = {
+  default: {name:'Đồ thường ngày',      cloth:'#ffd166', cloth2:'#ff9f1c'},
+  phivu:   {name:'Bộ Phi Vụ Đen',       cloth:'#2a2333', cloth2:'#4cc9f0'},
+  congso:  {name:'Công Sở Chỉn Chu',    cloth:'#f5f5f7', cloth2:'#5b7db1'},
+  nonla:   {name:'Nón Lá Huyền Thoại',  cloth:'#e8d5a3', cloth2:'#8a5a12'},
+  casi:    {name:'Ngôi Sao Sân Khấu',   cloth:'#ff6fa5', cloth2:'#ffd166'},
+  bep:     {name:'Bếp Trưởng Phố Đêm',  cloth:'#ffffff', cloth2:'#ef476f'},
+  thamtu:  {name:'Trinh Thám Chính Hiệu', cloth:'#a5764f', cloth2:'#5c3f28'},
+  hoahong: {name:'Quý Cô Hoa Hồng',     cloth:'#7a1f3d', cloth2:'#c9a227'},
+};
+const PETS = {
+  rua:  {e:'🐢', name:'Rùa Tốc Độ'},
+  cu:   {e:'🦉', name:'Cú Soi'},
+  bong: {e:'🐕', name:'Bông (về phe mình rồi)'},
+  meo:  {e:'🐈', name:'Mèo Lãi Suất'},
+  dino: {e:'🦖', name:'Bé Nợ Con'},
+};
+function chauSkin(){
+  const s = (typeof Game !== 'undefined' && Game.state && Game.state.skin) || 'default';
+  return SKINS[s] || SKINS.default;
+}
+
 const CHARDEF = {
   chau : {name:'Châu',  tag:'#ff6fa5', skin:'#ffdfc9', hair:'#7a4b3a', hairHi:'#a06b52',
           cloth:'#ffd166', cloth2:'#ff9f1c', style:'chau'},
@@ -244,7 +267,8 @@ function _body(c){
 
 /* ---------- chân dung hoàn chỉnh ---------- */
 function portraitSVG(id, expr){
-  const c = CHARDEF[id]; if(!c) return '';
+  let c = CHARDEF[id]; if(!c) return '';
+  if(id === 'chau'){ const sk = chauSkin(); c = {...c, cloth: sk.cloth, cloth2: sk.cloth2}; }
   expr = expr || 'normal';
   return `<svg viewBox="0 0 260 310" xmlns="http://www.w3.org/2000/svg">
     <defs>
@@ -267,7 +291,8 @@ function portraitSVG(id, expr){
 
 /* ---------- chibi top-down cho bản đồ ---------- */
 function drawChibi(ctx, x, y, dir, frame, id, opts){
-  const c = CHARDEF[id] || CHARDEF.chau;
+  let c = CHARDEF[id] || CHARDEF.chau;
+  if(id === 'chau'){ const sk = chauSkin(); c = {...c, cloth: sk.cloth, cloth2: sk.cloth2}; }
   opts = opts || {};
   const t = frame || 0;
   const step = Math.sin(t*0.25)*4;

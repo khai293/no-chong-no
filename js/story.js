@@ -758,9 +758,31 @@ endings: {
 
 computeEnding(){
   const s = Game.state;
+  const badges = Object.keys(s.badges || {}).length;
+  const pets = (s.pets || []).length;
+  if(badges >= 8) return 'legend';        // kết thúc bí mật: hoàn thành ≥8/12 quest ẩn
   if(s.dr >= 75) return 'than';
   if(s.trust >= 70) return 'love';
+  if(pets >= 3) return 'zoo';             // kết thúc bí mật: ≥3 thú cưng đồng hành
   if(s.route === 'nop') return 'hero';
   return 'rich';
 },
 };
+
+/* ---- 2 kết thúc bí mật từ quest ẩn ---- */
+Object.assign(STORY.endings, {
+  legend: {
+    cls:'end-legend', emoji:'🌟', tag:'KẾT THÚC BÍ MẬT — QUEST ẨN', title:'"HUYỀN THOẠI PHỐ HỖN LOẠN"',
+    text:`Canh cửa như thần, chạy nhanh như gió, đọc vị như máy quét, nướng bò như đầu bếp sao Michelin, ru khủng long ngủ như bảo mẫu 20 năm kinh nghiệm... Hồ sơ năng lực của {ten} dài đến mức Đội trưởng Lâm đọc xong phải đi rót nước.
+    Hai người mở "CÔNG TY GIẢI QUYẾT MỌI RẮC RỐI (trừ rắc rối của chính mình)" — dịch vụ duy nhất thành phố nhận từ phá án, hát đám cưới, đến trông thú cưng tiền sử. Khách xếp hàng từ 5 giờ sáng.
+    Bảng giá treo trước cửa ghi dòng cuối cùng, chữ nhỏ xíu: "Riêng hai thành viên sáng lập phục vụ nhau: MIỄN PHÍ TRỌN ĐỜI."
+    Hóa ra người ta không cần giỏi một thứ để đổi đời. Chỉ cần một người cùng mình... giỏi dần lên mỗi ngày.`,
+  },
+  zoo: {
+    cls:'end-zoo', emoji:'🦖', tag:'KẾT THÚC BÍ MẬT — QUEST ẨN', title:'"MÁI ẤM NHIỀU CHÂN"',
+    text:`Lều xiếc giờ chật cứng: Rùa Tốc Độ chiếm góc ấm nhất, Cú Soi trực ca đêm miễn phí, Bông tự phong làm bảo vệ trưởng, mèo Lãi Suất đòi ăn tăng dần theo tháng đúng như tên gọi, và bé Nợ Con... ăn sạch mọi hóa đơn đòi nợ ngay từ cửa.
+    Tin đồn lan xa: "Lều xiếc có sở thú mini dễ thương nhất thành phố." Bà Tư lập tức in vé tham quan — 20 nghìn/lượt, trẻ em giảm nửa giá, chủ nợ miễn phí (để họ vào rồi quên luôn mục đích ban đầu).
+    Tối tối, giữa một bầy sinh vật ngáy đủ kiểu, Lucien hỏi: "Nhà mình đông dân nhỉ?" — {ten} sửa lại: "Nhà mình đông NGƯỜI THÂN."
+    Gia đình chưa bao giờ cần chung một loài. Chỉ cần chung một mái lều — dột, nhưng đủ ấm.`,
+  },
+});

@@ -19,7 +19,48 @@ const Game = {
       route: null,          // 'ruot' (cứu Lucien) | 'nop' (giao bằng chứng)
       solved: false,        // giải đúng vụ án ch4
       unlocked: {taichinh:true, anau:false, choden:false, benhvien:false, doncs:false},
+      badges: {},           // quest ẩn đã hoàn thành
+      skins: ['default'], skin: 'default',
+      pets: [],
     };
+  },
+
+  /* -------- QUEST ẨN: hoàn thành minigame / nhiệm vụ chính = huy hiệu + thưởng -------- */
+  QUESTS: {
+    lookout:   {name:'Người Gác Cửa Thép',      reward:{skin:'phivu'}},
+    escape:    {name:'Đôi Chân Gió Bão',        reward:{pet:'rua'}},
+    papers:    {name:'Mắt Đọc Vi Điều Khoản',   reward:{skin:'congso'}},
+    disguise:  {name:'Bậc Thầy Hóa Trang',      reward:{skin:'nonla'}},
+    liedetect: {name:'Máy Quét Nói Dối Sống',   reward:{pet:'cu'}},
+    deduce:    {name:'Bộ Não Sherlock Phường',  reward:{pet:'bong'}},
+    karaoke:   {name:'Giọng Ca Trả Nợ',         reward:{skin:'casi'}},
+    grill:     {name:'Vua Vỉ Nướng',            reward:{skin:'bep'}},
+    dino:      {name:'Bảo Mẫu Khủng Long',      reward:{pet:'dino'}},
+    main_case: {name:'Phá Án Đầu Tay',          reward:{pet:'meo'}},
+    main_route:{name:'Lật Đổ Giám Đốc',         reward:{skin:'thamtu'}},
+    main_rose: {name:'Khắc Tinh Hoa Hồng',      reward:{skin:'hoahong'}},
+  },
+
+  award(qid){
+    const s = this.state, q = this.QUESTS[qid];
+    if(!s || !q || s.badges[qid]) return;
+    s.badges[qid] = 1;
+    AudioSys.sfx('win');
+    Toast(`🏅 QUEST ẨN: ${q.name}!`, 'good');
+    const r = q.reward;
+    setTimeout(() => {
+      if(r.skin && SKINS[r.skin] && !s.skins.includes(r.skin)){
+        s.skins.push(r.skin);
+        s.skin = r.skin;
+        VN._pcache = {};
+        Toast(`👗 Trang phục mới: ${SKINS[r.skin].name} (nút 👗 để đổi)`, 'good');
+        $('skinBtn').classList.remove('hidden');
+      }
+      if(r.pet && PETS[r.pet] && !s.pets.includes(r.pet)){
+        s.pets.push(r.pet);
+        Toast(`${PETS[r.pet].e} Thú cưng mới đi theo bạn: ${PETS[r.pet].name}!`, 'good');
+      }
+    }, 900);
   },
 
   charName(id){
@@ -87,7 +128,17 @@ const Game = {
   load(){
     try{
       const raw = localStorage.getItem(SAVE_KEY);
-      if(raw){ this.state = JSON.parse(raw); return true; }
+      if(raw){
+        const s = JSON.parse(raw);
+        // di trú save cũ (trước bản quest ẩn)
+        s.badges = s.badges || {};
+        s.skins = s.skins || ['default'];
+        s.skin = s.skin || 'default';
+        s.pets = s.pets || [];
+        this.state = s;
+        if(s.skins.length > 1) $('skinBtn').classList.remove('hidden');
+        return true;
+      }
     }catch(e){}
     return false;
   },
@@ -159,7 +210,7 @@ const VN = {
   _pcache: {},
 
   portrait(id, expr){
-    const k = id + '|' + expr;
+    const k = id + '|' + expr + (id === 'chau' && Game.state ? '|' + Game.state.skin : '');
     if(!this._pcache[k]) this._pcache[k] = portraitSVG(id, expr);
     return this._pcache[k];
   },
@@ -170,6 +221,7 @@ const VN = {
     this.active = true;
     this.leftChar = this.rightChar = null;
     $('pL').innerHTML = ''; $('pR').innerHTML = '';
+    $('pL').dataset.key = ''; $('pR').dataset.key = '';
     $('pL').className = 'portrait left'; $('pR').className = 'portrait right';
     $('vn').classList.remove('hidden');
     $('choices').classList.add('hidden');
@@ -208,7 +260,7 @@ const VN = {
       const el = $('p' + side);
       const other = $(side === 'L' ? 'pR' : 'pL');
       const expr = node.expr || 'normal';
-      const key = id + '|' + expr;
+      const key = id + '|' + expr + (id === 'chau' && Game.state ? '|' + Game.state.skin : '');
       if(el.dataset.key !== key){ el.innerHTML = this.portrait(id, expr); el.dataset.key = key; }
       if(side === 'L') this.leftChar = id; else this.rightChar = id;
       el.classList.add('active');

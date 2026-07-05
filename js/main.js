@@ -4,8 +4,12 @@
 const Flow = {
   steps: [], si: 0,
 
+  // quest chính: thưởng khi hoàn thành các chương mốc (đến chương kế tiếp)
+  MAIN_REWARDS: {5:'main_case', 8:'main_route', 12:'main_rose'},
+
   startChapter(i){
     if(i >= STORY.flow.length){ showEnding(); return; }
+    if(this.MAIN_REWARDS[i]) Game.award(this.MAIN_REWARDS[i]);
     Game.state.chapter = i;
     Game.save();
     const ch = STORY.flow[i];
@@ -32,7 +36,11 @@ const Flow = {
     if(st.vn){ VN.play(STORY.scenes[st.vn], done); return; }
     if(st.panels){ Panels.play(STORY.panels[st.panels], done); return; }
     if(st.mg){
-      MG.run(st.mg, st.opts, res => { if(st.after) st.after(res); done(); });
+      MG.run(st.mg, st.opts, res => {
+        if(res.success) Game.award(st.mg); // quest ẩn
+        if(st.after) st.after(res);
+        done();
+      });
       return;
     }
     if(st.map){ this.runMap(st.map, done); return; }
@@ -70,7 +78,7 @@ function showEnding(){
   Game.setQuest(null);
   Game.clearSave();
   const key = STORY.computeEnding();
-  AudioSys.music({love:'love', hero:'lofi', rich:'comedy', than:'mystery'}[key] || 'sad');
+  AudioSys.music({love:'love', hero:'lofi', rich:'comedy', than:'mystery', legend:'boss', zoo:'cute'}[key] || 'sad');
   const e = STORY.endings[key];
   const s = Game.state;
   const paras = e.text.split('\n').map(p =>
@@ -87,9 +95,11 @@ function showEnding(){
         <span>⚡ Rắc Rối: ${s.dr}</span>
         <span>💗 Tin Tưởng: ${s.trust}%</span>
         <span>💸 Tài chính: ${Game.fmtMoney(s.money)}</span>
+        <span>🏅 Quest ẩn: ${Object.keys(s.badges || {}).length}/12</span>
       </div>
+      ${(s.pets && s.pets.length) ? `<p style="margin-top:10px">Đồng hành tới phút cuối: ${s.pets.map(p => PETS[p].e + ' ' + PETS[p].name).join(' • ')}</p>` : ''}
     </div>
-    <div class="end-note">Còn 3 kết thúc khác đang chờ... Chơi lại và chọn khác đi! 🎲</div>
+    <div class="end-note">Game có tổng cộng 6 KẾT THÚC — quest ẩn mở ra những kết cục bí mật! 🎲</div>
     <button class="big-btn" onclick="location.reload()">🔄 CHƠI LẠI TỪ ĐẦU</button>`;
   el.classList.remove('hidden');
   AudioSys.sfx('win');
@@ -97,7 +107,6 @@ function showEnding(){
 
 /* ---------------- MÀN HÌNH CHÍNH ---------------- */
 function setupTitle(){
-  $('logoStamp').innerHTML = KIDNEY + ' một quả thận đã ra đi vì game này';
   // nhân vật hai bên
   $('titleChars').innerHTML = `
     <div class="tchar tc-l">${portraitSVG('chau', 'happy')}</div>
@@ -128,7 +137,12 @@ function setupTitle(){
     }
   };
   const go = () => {
-    const name = ($('nameInput').value || '').trim() || 'Châu';
+    const name = ($('nameInput').value || '').trim();
+    if(!name){
+      Toast('✍️ Nhập tên của bạn trước đã!', 'bad');
+      $('nameInput').focus();
+      return;
+    }
     Game.state = Game.newState(name);
     startPlay(0);
   };
@@ -173,6 +187,21 @@ function mainLoop(now){
   }
   requestAnimationFrame(mainLoop);
 }
+
+/* nút đổi trang phục (mở khóa qua quest ẩn) */
+$('skinBtn').addEventListener('click', () => {
+  const s = Game.state;
+  if(!s || !s.skins || s.skins.length < 2){
+    Toast('👗 Chưa có trang phục nào — hoàn thành quest ẩn đi!', 'bad');
+    return;
+  }
+  const i = s.skins.indexOf(s.skin);
+  s.skin = s.skins[(i + 1) % s.skins.length];
+  VN._pcache = {};
+  $('pL').dataset.key = ''; $('pR').dataset.key = '';
+  AudioSys.sfx('click');
+  Toast('👗 ' + SKINS[s.skin].name, 'good');
+});
 
 /* chặn cuộn trang bằng phím */
 window.addEventListener('keydown', e => {

@@ -408,6 +408,23 @@ const World = {
     // người chơi
     const p = this.player;
     drawChibi(g, p.x, p.y, p.dir, p.frame, 'chau', {walking:p.walking});
+    // thú cưng đi theo (phần thưởng quest ẩn)
+    const pets = (Game.state && Game.state.pets) || [];
+    if(pets.length){
+      const back = {down:[0,-1], up:[0,1], left:[1,0], right:[-1,0]}[p.dir] || [0,-1];
+      g.font = '26px sans-serif'; g.textAlign = 'center';
+      pets.forEach((pid, i) => {
+        const pet = PETS[pid]; if(!pet) return;
+        const d = 44 + i*30;
+        const sway = (i % 2 ? 12 : -12) * (back[0] === 0 ? 1 : 0);
+        const px = p.x + back[0]*d + sway;
+        const py = p.y + back[1]*d + (back[1] === 0 ? (i % 2 ? 14 : -14) : 0);
+        g.fillStyle = 'rgba(20,12,30,.2)';
+        g.beginPath(); g.ellipse(px, py + 12, 10, 4, 0, 0, Math.PI*2); g.fill();
+        g.fillStyle = '#000';
+        g.fillText(pet.e, px, py + Math.sin(this.time*5 + i*1.3)*3);
+      });
+    }
     // đồng đội đi theo (Lucien) — trang trí khi flag bật
     if(Game.state.flags.khaiFollow){
       const off = {down:[-34,-20], up:[34,20], left:[34,-16], right:[-34,-16]}[p.dir] || [-34,-20];
