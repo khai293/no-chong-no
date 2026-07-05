@@ -12,7 +12,7 @@ Object.assign(STORY.scenes, {
 
 /* ========== CH4: MẸ ƠI, ĐỪNG XEM THỜI SỰ ========== */
 m1_call: [
-  {bg:'hideout'}, {music:'lofi'},
+  {bg:'hideout'}, {music:'comedy'},
   {who:'sys', text:'Sáng sớm ở lều xiếc. Điện thoại của {ten} reo — số lạ. Nhạc chuông là bài "Tiền Ơi Về Đi" cài từ hồi còn hy vọng.'},
   {who:'yta', expr:'happy', text:'Chị {ten} hả~? Em nè~ Y tá Hồng đáng yêu nè~ Báo tin nè: có bà MAI mới nhập viện khoa tim mạch, khai người thân là chị đó~'},
   {who:'chau', expr:'shock', text:'MẸ TÔI?! Mẹ tôi nhập viện mà cô báo tin bằng giọng đọc quảng cáo trà sữa vậy hả?!', pfx:true},
@@ -24,10 +24,14 @@ m1_call: [
   {do:()=>{ Game.state.flags.khaiFollow = true; }},
 ],
 m1_mom: [
-  {bg:'hospital'}, {music:'lofi'},
+  {bg:'hospital'}, {music:'love'},
   {who:'me', expr:'shock', text:'Ơ con gái?! Sao con biết mẹ ở đây? Mẹ dặn con Hồng giấu kỹ rồi mà!'},
   {who:'chau', expr:'cry', text:'MẸ! Mẹ đau tim mà còn bày đặt giấu con?!'},
   {who:'me', expr:'normal', text:'Có gì đâu mà rối. Tim mẹ chỉ... hơi mỏi thôi. Máy chạy 58 năm, xuống cấp là đúng quy trình. Bảo hành hết lâu rồi.'},
+  {who:'chau', expr:'angry', text:'Thế BỐ đâu?! Thằng Tí đâu?! Cả nhà không ai báo con một tiếng!'},
+  {who:'me', expr:'smug', text:'Mẹ giấu CẢ NHÀ chứ riêng gì con. Bố mày đang chạy chuyến xe khách Bắc – Nam, biết tin lại quay đầu xe giữa đèo thì khổ cả xe khách. Còn thằng Tí tuần sau thi thử lớp 12 — nó mà biết là mượn cớ nghỉ học liền, nó chỉ chờ có thế thôi.'},
+  {who:'chau', expr:'dizzy', text:'Mẹ nằm giường bệnh mà điều phối thông tin cả nhà như trung tâm tình báo vậy...'},
+  {who:'me', expr:'normal', text:'Làm mẹ 26 năm, làm vợ thợ máy 28 năm — không có nghiệp vụ sao sống nổi con.'},
   {who:'me', expr:'think', text:'Khoan đã. Cậu nào đứng nép sau cánh cửa kia? Cao ráo, sáng sủa... Con ơi, đây là...?'},
   {choice:[
     {ic:'😇', label:'"Bạn... làm ăn chung của con ạ."', trust:3, reply:[
@@ -60,6 +64,10 @@ m1_leave: [
   {who:'khai', expr:'normal', text:'Cháu hứa với bác. Bằng cả quả thận còn lại của cháu.'},
   {who:'me', expr:'laugh', text:'Cháu này nói chuyện duyên ghê! Ai đời thề bằng thận!'},
   {who:'sys', text:'(Bác ơi. Đó không phải phép ẩn dụ đâu ạ. Đó là tài sản thật sự cuối cùng của cậu ấy đó ạ.)'},
+  {who:'me', expr:'normal', text:'Khi nào rảnh thì ghé nhà ăn cơm. Nhưng khoan hẵng gặp bố con bé nha cháu. Ông ấy hiền khô à... trừ những lúc trên tay có cờ lê.'},
+  {who:'khai', expr:'worried', text:'D-dạ. Cháu sẽ chọn hôm nào bác trai không sửa xe ạ.'},
+  {who:'me', expr:'gloom', text:'Ông ấy là THỢ MÁY, cháu ơi. Ngày nào tay cũng có cờ lê.'},
+  {who:'khai', expr:'dizzy', text:'(Ghi chú sinh tồn: mua quà ra mắt là bộ cờ lê xịn. Đồng nghiệp không đánh đồng nghiệp.)'},
   {who:'me', expr:'normal', text:'Con gái. Cầm lấy. 500 nghìn — tiền mẹ giấu trong hộp dầu gió. Đừng cãi. Mẹ già rồi, cãi thua là mệt tim, con muốn mẹ mệt tim không?'},
   {who:'chau', expr:'cry', text:'Mẹ dùng bệnh án để THẮNG CÃI NHAU?! ...Mẹ giữ mà mua cháo! Con sắp giàu rồi! Con có rất nhiều dự án!'},
   {who:'me', expr:'smug', text:'Ừ. Mẹ tin. Như mẹ đã từng tin 17 tờ đơn xin việc của con đều "sắp được nhận".'},
@@ -70,7 +78,7 @@ m1_leave: [
 
 /* ========== CH6: ĐẠI CHIẾN CHỦ NỢ ========== */
 n1_debtors: [
-  {bg:'hideout'}, {music:'tense'}, {fx:'shake'},
+  {bg:'hideout'}, {music:'comedy'}, {fx:'shake'},
   {who:'chuno', expr:'angry', text:'LUCIEN!!! {ten}!!! HỘI CHỦ NỢ LIÊN PHƯỜNG ghé thăm hỏi sức khỏe nèèè!!!', pfx:true},
   {who:'khai', expr:'gloom', text:'Sáu Lãi. Trùm gom nợ cả khu này. Nghe đồn hắn đòi nợ bằng cách... hát bolero trước cửa nhà con nợ. 24/7. Cho tới khi trả.'},
   {who:'chau', expr:'shock', text:'ĐÒI NỢ BẰNG BOLERO?!'},
@@ -96,7 +104,7 @@ n1_debtors: [
   {who:'khai', expr:'gloom', text:'Thì như tối hôm qua. Con chuột hàng xóm dọn nhà đi rồi.'},
 ],
 n1_after: [
-  {bg:'market'}, {music:'lofi'},
+  {bg:'market'}, {music:'comedy'},
   {who:'chuno', expr:'cry', text:'HUHUHU... Bài "Kiếp Nợ Nần" đó... là CÂU CHUYỆN ĐỜI TA... Ta đi đòi nợ dạo... vì năm xưa ta từng BỊ NỢ... đứa bạn thân ôm cả dây hụi bỏ trốn...', pfx:true},
   {who:'chau', expr:'worried', text:'Anh Sáu... anh khóc ướt hết sổ nợ rồi kìa... chữ nhòe hết rồi...'},
   {who:'chuno', expr:'shock', text:'NHÒE THẬT! Thôi xong, trang này ghi nợ của cả tổ dân phố 4!'},
@@ -160,7 +168,7 @@ k2_confront: [
   {do:()=>{ Game.addTrust(20); Game.addDR(5, 'phá cửa tiệm gấu bông (lần 2 trong tháng)'); Game.state.flags.momSurgery = true; }},
 ],
 k2_home: [
-  {bg:'hideout'}, {music:'lofi'},
+  {bg:'hideout'}, {music:'love'},
   {who:'khai', expr:'normal', text:'Này. Lúc nãy em nói... em cần anh.'},
   {who:'chau', expr:'blush', text:'Tôi nói cần "NHÂN LỰC". Lều dột, cần người trám mái. Đừng có tự tin.'},
   {who:'khai', expr:'smug', text:'Ừ. Nhân lực. Nhân lực này xin thông báo: từ nay không tự ý biến mất nữa. Có mất gì thì mất... nhưng không mất mặt khỏi cái lều này.'},
@@ -170,14 +178,14 @@ k2_home: [
 
 /* ========== CH9: TẬP LÀM NGƯỜI LƯƠNG THIỆN ========== */
 l1_shop: [
-  {bg:'hideout'}, {music:'lofi'},
+  {bg:'hideout'}, {music:'comedy'},
   {who:'sys', text:'Sau cơn bão mang tên Ngân hàng Đại Phát, mẹ đã mổ xong và đang hồi phục thần tốc (bác sĩ bảo: "tim bà khỏe hơn tim tôi"). Hai kẻ nợ quyết định thử một điều chưa từng làm: SỐNG LƯƠNG THIỆN.'},
   {who:'khai', expr:'happy', text:'Khai trương: "CÀ PHÊ NỢ CŨ 0.5"! Gọi là chi nhánh 0.5 vì... chưa đủ tiền làm chi nhánh 1.'},
   {who:'chau', expr:'sparkle', text:'Menu em viết xong rồi nè! "Cà phê đen: 15k. Cà phê sữa: 18k. Cà phê pha bằng nước mắt khởi nghiệp: miễn phí — tự phục vụ, nguồn nguyên liệu dồi dào."'},
   {who:'khai', expr:'normal', text:'Muốn bán được hàng thì hình ảnh phải chuyên nghiệp. Đi thay đồ. Hôm nay chúng ta là BARISTA.'},
 ],
 l1_day: [
-  {bg:'hideout'}, {music:'lofi'},
+  {bg:'hideout'}, {music:'comedy'},
   {who:'sys', text:'Khách hàng #1: Anh Sáu Lãi — gọi một đen đá, ngồi bốn tiếng, kể chuyện tình ba tập. Doanh thu: 15 nghìn.'},
   {who:'sys', text:'Khách hàng #2: Y tá Hồng — hỏi có trà sữa không. Không có. Đi về. Để lại một tia hy vọng và mang nó đi luôn.'},
   {who:'sys', text:'Khách hàng #3: chó Bông — không gọi gì, gặm mất một chân ghế, để lại một bãi... thôi bỏ qua chi tiết này.'},
@@ -187,7 +195,7 @@ l1_day: [
   {who:'khai', expr:'laugh', text:'Giờ em hiểu vì sao anh chọn nghề "phi truyền thống" rồi ha. Truyền thống đắt lắm.'},
 ],
 l1_mom: [
-  {bg:'sunset'}, {music:'sad'},
+  {bg:'sunset'}, {music:'love'},
   {who:'me', expr:'normal', text:'Quán xá gì mà tuềnh toàng vậy hai đứa? Cái biển hiệu viết bằng bút xóa hả?'},
   {who:'chau', expr:'shock', text:'MẸ?! Mẹ mới mổ xong mà đi tận đây?! Mà... SAO MẸ BIẾT CHỖ NÀY?!', pfx:true},
   {who:'me', expr:'smug', text:'Mẹ biết từ lâu rồi. Từ cái hôm thời sự chiếu tin "CƯỚP NGÂN HÀNG HỤT — HAI NGHI PHẠM CÕNG NHAU BỎ CHẠY". Con che mặt nhưng đôi dép thì không che. Đôi dép đó MẸ MUA.'},
@@ -196,17 +204,21 @@ l1_mom: [
   {who:'me', expr:'normal', text:'Còn cậu. "Chuyên gia tài chính" hả? Bác biết hết rồi. Biết cả... vụ cái thận. Con Hồng kể. Nó kể có nhạc nền luôn.'},
   {who:'khai', expr:'gloom', text:'Bác... cháu xin lỗi. Vì đã nói dối bác ngay lần đầu gặp mặt.'},
   {who:'me', expr:'normal', text:'Vụ nói dối — bác giận. Nhưng vụ một thằng con trai định bán nốt quả thận cuối cùng để lo viện phí cho một bà già KHÔNG PHẢI mẹ nó... bác giận không nổi. Cái đó người ta gọi là gì hả trời. À. Là NGHĨA. Chữ đó giờ hiếm lắm.'},
-  {who:'me', expr:'gloom', text:'Bố con {ten} mất sớm. Hai mẹ con nương nhau mấy chục năm. Bác không cần con rể giàu. Bác chỉ cần một đứa... lúc nhà cháy không chạy trước.'},
+  {who:'me', expr:'gloom', text:'Nhà bác bốn người: ông thợ máy suốt ngày ôm cờ lê, thằng Tí ôm sách luyện thi, con bé này thì ôm... nợ. Bác không cần thêm một đứa giàu. Bác chỉ cần thêm một đứa — lúc nhà cháy không chạy trước.'},
   {who:'khai', expr:'normal', text:'Cháu cam kết chạy sau cùng ạ. Có gì cháu cõng — cháu quen việc đó rồi.'},
   {who:'me', expr:'laugh', text:'Ừ, nghe đồn cõng giỏi lắm. Thời sự quay rõ nét lắm. Chạy cũng nhanh nữa.'},
-  {who:'chau', expr:'worried', text:'Mẹ ơi con xin mẹ đừng khen kỹ năng phạm tội của ảnh nữa...'},
+  {who:'khai', expr:'worried', text:'Thế... bác trai cũng xem đoạn đó rồi ạ?'},
+  {who:'me', expr:'smug', text:'Xem đi xem lại ba lần. Xong phán đúng một câu: "Chân cẳng tốt. Cõng không làm rơi. Làm rể được." Tiêu chí chọn rể của ổng đơn giản lắm.'},
+  {who:'khai', expr:'dizzy', text:'Cháu vừa đậu vòng hồ sơ nhờ... tốc độ bỏ chạy?'},
+  {who:'me', expr:'normal', text:'Còn thằng Tí thì đòi xin chữ ký "chị đại trên tivi" kìa. Nó khoe khắp lớp: "chị tao ngầu nhất phường".'},
+  {who:'chau', expr:'worried', text:'Mẹ ơi con xin cả nhà đừng hâm mộ kỹ năng phạm tội của tụi con nữa...'},
   {who:'me', expr:'normal', text:'Thôi. Bán cho mẹ 3 ly cà phê. Tính tiền đầy đủ. Khởi nghiệp mà — đồng đầu tiên phải là đồng tử tế.'},
   {do:()=>{ Game.addTrust(8); Game.addMoney(1, 'mẹ mua mở hàng 3 ly (boa thêm)'); }},
 ],
 
 /* ========== CH10: THIÊN TÀI GHÉ THÀNH PHỐ ========== */
 b1_meet: [
-  {bg:'night'}, {music:'night'},
+  {bg:'night'}, {music:'mystery'},
   {who:'bac', expr:'normal', text:'Cô là {ten}. Cựu nhân viên văn phòng, hiện hành nghề "trinh thám tự phong", tỷ lệ phá án 100% trên tổng số... một vụ. Chỉ số linh cảm dao động phi chuẩn. Tôi cần cô.'},
   {who:'chau', expr:'shock', text:'Ơ?! Anh là AI mà đọc lý lịch tôi vanh vách như đọc menu vậy?!'},
   {who:'bac', expr:'smug', text:'Bạc Cận Ngôn. Giáo sư tâm lý học tội phạm. Thiên tài. Đây không phải tự tin — là sự thật đã qua kiểm định ở ba châu lục.'},
@@ -214,7 +226,7 @@ b1_meet: [
   {who:'bac', expr:'think', text:'Nam. Ngoài hai mươi. Một quả thận. Hai tiền án hụt. Và đang GHEN — cường độ 8.5 trên thang 10.'},
   {who:'khai', expr:'shock', text:'TÔI KHÔNG H— ...8.5 là còn đo thiếu đấy.', pfx:true},
   {who:'chau', expr:'dizzy', text:'Ít nhất anh thành thật.'},
-  {who:'bac', expr:'normal', text:'Vào việc. "Quý Ngài Hoa Hồng" — kẻ chuyên đánh cắp THỨ QUÝ GIÁ NHẤT của nạn nhân, để lại hoa hồng đen và tấm thiệp: "Hãy nhắm mắt khi ta đến." Hắn vừa chuyển địa bàn tới thành phố này. Ba vụ trong hai đêm.'},
+  {who:'bac', expr:'normal', text:'Vào việc. "Quý Ngài Hoa Hồng" — kẻ chuyên đánh cắp THỨ QUÝ GIÁ NHẤT của nạn nhân, chỉ để lại một bông hồng đen và tấm thiệp ký tên hắn. Hắn vừa chuyển địa bàn tới thành phố này. Ba vụ trong hai đêm.'},
   {who:'bac', expr:'normal', text:'Trợ lý chính thức của tôi — Giản Dao — đang ở nước ngoài. Cô sẽ tạm thay. Lý do: hắn tính toán mọi biến số. Còn cô... là biến số HỖN LOẠN nhất thành phố này. Đó là lời khen cao cấp nhất kho từ vựng của tôi.'},
   {who:'khai', expr:'gloom', text:'Cả thành phố xếp hàng khen em theo kiểu xúc phạm. Anh bắt đầu quen rồi.'},
   {who:'bac', expr:'normal', text:'Thù lao: 100 triệu. Điều kiện: nghe lệnh tôi tuyệt đối.'},
@@ -248,9 +260,9 @@ b1_vinh2: [
   {who:'sys', text:'📋 Hồ sơ Quý Ngài Hoa Hồng: thuận tay trái, cao trên 1m75, áo nhung tím, nước hoa hạng sang, giọng ru ngủ, hoạt động quanh chợ đen.'},
 ],
 b1_end: [
-  {bg:'hideout'}, {music:'sad'},
+  {bg:'hideout'}, {music:'mystery'},
   {who:'sys', text:'Nửa đêm. Dưới khe cửa lều — một tấm thiệp đen viền vàng, thơm mùi hoa hồng.'},
-  {who:'bac', expr:'normal', text:'"Chào mừng nhập cuộc, cô trợ lý hỗn loạn. Đêm mai, ta sẽ đến lấy THỨ QUÝ GIÁ NHẤT của ngươi. Hãy nhắm mắt khi ta đến. — Q.N.H.H."'},
+  {who:'bac', expr:'normal', text:'"Chào mừng nhập cuộc, cô trợ lý hỗn loạn. Đêm mai, ta sẽ đến lấy THỨ QUÝ GIÁ NHẤT của ngươi. — Q.N.H.H."'},
   {who:'chau', expr:'worried', text:'Thứ quý giá nhất của tôi?! Là gì?! Tôi CÓ gì đâu mà lấy?!'},
   {who:'khai', expr:'smug', text:'Yên tâm đi. Cái nồi anh giấu dưới gầm thùng sơn rồi. Khóa hai lớp.'},
   {who:'chau', expr:'worried', text:'Ừ... cái nồi... chắc là cái nồi... chắc vậy...'},
@@ -263,7 +275,7 @@ b2_kidnap: [
   {bg:'night'}, {music:'sad'},
   {who:'sys', text:'Sáng hôm sau. Cái nồi: còn nguyên. Tiền lẻ trong hộp: còn nguyên. Thùng sơn: còn nguyên. Chỉ thiếu... Lucien.'},
   {who:'chau', expr:'shock', text:'KHÔNG... KHÔNG PHẢI CHỨ...', pfx:true},
-  {who:'sys', text:'Trên gối của anh: một bông hồng đen và tấm thiệp. "Ta đã lấy thứ quý giá nhất của ngươi. Yên tâm — hắn được đối xử tốt, dù hắn NÓI HƠI NHIỀU nên ta đã dán băng keo. Hãy nhắm mắt khi ta đến. — Q.N.H.H."'},
+  {who:'sys', text:'Trên gối của anh: một bông hồng đen và tấm thiệp. "Ta đã lấy thứ quý giá nhất của ngươi. Yên tâm — hắn được đối xử tốt, dù hắn NÓI HƠI NHIỀU nên ta đã dán băng keo. — Q.N.H.H."'},
   {who:'chau', expr:'cry', text:'LUCIEN LÀ "THỨ QUÝ GIÁ NHẤT" CỦA TÔI?! AI CHO PHÉP HẮN KẾT LUẬN VẬY?! ...Mà sao tim tôi lại công nhận trước cả não vậy?!'},
   {who:'bac', expr:'normal', text:'Thú vị. Hắn đọc cô chính xác hơn tôi — tôi đoán là cái nồi, xác suất 78%. Tôi sẽ hạ điểm mình 0.5. Chuyện này 10 năm mới có một lần, cô nên ghi lại.'},
   {who:'chau', expr:'angry', text:'GHI GHI CÁI GÌ!! CỨU NGƯỜI TRƯỚC!! IQ với EQ của giáo sư — chọn MỘT đứa chạy ra đây làm việc giùm tôi!!'},
@@ -280,7 +292,7 @@ b2_yta3: [
   {who:'yta', expr:'normal', text:'Hắn đang ở KARAOKE BÍ MẬT — bao trọn phòng VIP từ hôm qua, dặn chủ quán treo biển "sửa chữa". Chị... chị đi cứu anh Lucien đi. Voucher này em đưa chị nè, coi như... em xin lỗi. Một tháng thôi. Trọn đời thì em không nỡ.'},
 ],
 b2_face: [
-  {bg:'night'}, {music:'tense'},
+  {bg:'night'}, {music:'boss'},
   {who:'tahan', expr:'evil', text:'Chào mừng, cô trợ lý. Ngươi đến nhanh hơn tính toán của ta 20 phút. Biến số hỗn loạn... danh bất hư truyền.'},
   {who:'khai', expr:'angry', text:'{ten}!! Cẩn thận!! Hắn nguy hiểm lắm — hắn cho anh nghe kể chuyện đêm khuya bằng GIỌNG THÔI MIÊN, anh suýt khai hết chuyện hồi mẫu giáo rồi!!', pfx:true},
   {who:'tahan', expr:'normal', text:'Hắn nói nhiều đúng như hồ sơ. Ta đã tháo băng keo vì tò mò... và dán lại hai lần. Kỷ lục của bộ sưu tập.'},
@@ -323,7 +335,7 @@ b3_end: [
 
 /* ========== CH13: NGÀY KHÔNG NỢ NẦN ========== */
 d1_start: [
-  {bg:'hideout'}, {music:'lofi'},
+  {bg:'hideout'}, {music:'comedy'},
   {who:'chau', expr:'sparkle', text:'MỘT TRĂM TRIỆU! Trả bớt cho Bà Tư, gửi mẹ ít thuốc bổ... vẫn còn dư chút xíu!'},
   {who:'khai', expr:'normal', text:'Hôm nay khoan trả ai hết. Anh tuyên bố: HAI MƯƠI BỐN GIỜ KHÔNG NỢ NẦN. Không chủ nợ. Không vụ án. Không ai bị bắt cóc — anh kiểm tra lịch rồi, hôm nay không ai rảnh để bắt cóc anh.'},
   {who:'chau', expr:'shock', text:'Vậy làm gì?'},
@@ -332,7 +344,7 @@ d1_start: [
   {who:'khai', expr:'laugh', text:'Thì hôm nay khai quật. Đi. Bắt đầu từ nơi mọi thứ bắt đầu.'},
 ],
 d1_cafe: [
-  {bg:'cafe'}, {music:'lofi'},
+  {bg:'cafe'}, {music:'love'},
   {who:'sys', text:'Quán cà phê cũ. Cái bàn cũ. Nhưng lần này: HAI ly. Đầy. Có topping. Nhân viên phục vụ nhìn hai người như nhìn cột mốc lịch sử.'},
   {who:'khai', expr:'smug', text:'Nhớ hồi đó không? Em ngồi đúng ghế này, nhìn nửa ly cà phê như nhìn người yêu cũ.'},
   {who:'chau', expr:'happy', text:'Giờ em nhìn ly cà phê ĐẦY này như nhìn... hóa đơn đã thanh toán. Cảm xúc mãnh liệt hơn nhiều. Anh không hiểu được đâu.'},
@@ -353,7 +365,7 @@ d1_cafe: [
   {who:'khai', expr:'normal', text:'Giờ tới tiết mục chính. Karaoke. Anh đặt phòng rồi — lần này KHÔNG phải để giải cứu ai hết. Chỉ để hát. Dở cũng được. Càng dở càng vui.'},
 ],
 d1_sunset: [
-  {bg:'sunset'}, {music:'sad'},
+  {bg:'sunset'}, {music:'love'},
   {who:'sys', text:'Nóc lều xiếc. Hai ly trà sữa — mua bằng voucher Y tá Hồng gửi tặng kèm 47 tin nhắn xin lỗi. Mặt trời đang lặn như một đồng xu vàng rơi chậm... mà lần này, không ai buồn nhặt.'},
   {who:'chau', expr:'normal', text:'Này anh. Một năm trước, nếu có ai nói với em: "mày sẽ mất việc, cướp ngân hàng hụt, bán nhầm thận người ta, bị đòi nợ bằng bolero, làm trợ lý cho thiên tài, và đấu trí với trùm trộm quốc tế"... chắc em khóc ngất.'},
   {who:'khai', expr:'normal', text:'Còn bây giờ?'},
@@ -363,7 +375,7 @@ d1_sunset: [
   {who:'chau', expr:'blush', text:'...'},
   {who:'khai', expr:'normal', text:'Nhắm mắt lại đi.'},
   {who:'chau', expr:'worried', text:'Hả?! Có chuyện tồi tệ gì sắp ập đến hả?! Chủ nợ hả?! CẢNH SÁT HẢ?!'},
-  {who:'khai', expr:'laugh', text:'Không. Lần này là chuyện TỐT đang đến. Nhưng luật vẫn là luật: hãy nhắm mắt khi anh đến.'},
+  {who:'khai', expr:'laugh', text:'Không. Lần này là chuyện TỐT đang đến. Nhưng luật cũ vẫn còn hiệu lực — em quên rồi à?'},
   {who:'sys', text:'Cô nhắm mắt. Và trong bóng tối tự nguyện đầu tiên của cuộc đời mình, {ten} không nghe thấy tiếng báo động, không nghe thấy tiếng chủ nợ — chỉ nghe thấy nhịp tim của một người đang đứng rất, rất gần.'},
   {who:'sys', text:'Khoảng cách đó rồi sẽ còn gần nữa hay không... là chuyện của chương cuối. Nhưng có một điều chắc chắn: từ hôm nay, món nợ giữa hai người đã có tên gọi khác.'},
   {do:()=>{ Game.addTrust(8); }},
@@ -479,22 +491,22 @@ b2_found: [
   const CH_BAC1 = { title:'"THIÊN TÀI GHÉ THÀNH PHỐ"', stamp:'🌹 hoa hồng đen thứ nhất',
     steps:[
       {panels:'b1_arrive'},
-      {map:{playerAt:{x:1280, y:820}, quest:'Một quý ông đáng ngờ đang chờ ở quảng trường... 🧐', music:'night',
+      {map:{playerAt:{x:1280, y:820}, quest:'Một quý ông đáng ngờ đang chờ ở quảng trường... 🧐', music:'mystery',
         talk:'bac',
         npcs:[{id:'bac', char:'bac', x:1230, y:870, emote:'❗'}]}},
       {vn:'b1_meet'},
-      {map:{quest:'Khám nghiệm hiện trường 1/3: sạp Bà Tư 🕶️', music:'night',
+      {map:{quest:'Khám nghiệm hiện trường 1/3: sạp Bà Tư 🕶️', music:'mystery',
         talk:'batu',
         npcs:[{id:'batu', char:'batu', x:265, y:1120, emote:'💢'},
           {char:'bac', x:1230, y:870, label:'GS. Bạc (đang phân tích)', bark:[
             {who:'bac', expr:'think', text:'Đừng báo cáo miệng. Tôi nghe được nhịp thở của cô từ 40 mét — đủ dữ liệu rồi.'},
             {who:'chau', expr:'dizzy', text:'(Làm việc với thiên tài áp lực dễ sợ...)'}]}]}},
       {vn:'b1_batu'},
-      {map:{quest:'Hiện trường 2/3: Tiệm Cầm Đồ 🦷', music:'night',
+      {map:{quest:'Hiện trường 2/3: Tiệm Cầm Đồ 🦷', music:'mystery',
         talk:'camdo',
         npcs:[{id:'camdo', char:'camdo', x:815, y:1085, emote:'💧'}]}},
       {vn:'b1_camdo'},
-      {map:{quest:'Nhân chứng cuối: Vinh Xe Ôm thấy gì đó! 🛵', music:'night',
+      {map:{quest:'Nhân chứng cuối: Vinh Xe Ôm thấy gì đó! 🛵', music:'mystery',
         talk:'vinh',
         npcs:[{id:'vinh', char:'vinh', x:950, y:815, emote:'❓'}]}},
       {vn:'b1_vinh'},
@@ -551,7 +563,7 @@ b2_found: [
 
   const CH_BAC3 = { title:'"TẠM BIỆT, THIÊN TÀI"', stamp:'🌹 ván đấu cuối cùng',
     steps:[
-      {mg:'liedetect', opts:{char:'tahan', name:'TẠ HÀN — QUÝ NGÀI HOA HỒNG', need:3, time:26, hard:true,
+      {mg:'liedetect', opts:{char:'tahan', name:'TẠ HÀN — QUÝ NGÀI HOA HỒNG', need:3, time:26, hard:true, music:'boss',
         hint:'Sa mạc cũng có mưa. Đừng nhìn mắt hắn — nhìn thứ HẮN nhìn...'}, after(res){
         if(!res.success) Game.addDR(10, 'suýt bị giọng ru ngủ thôi miên');
       }},
@@ -561,7 +573,7 @@ b2_found: [
   const CH_DATE = { title:'"NGÀY KHÔNG NỢ NẦN"', stamp:'🌇 24 giờ tự do',
     steps:[
       {vn:'d1_start'},
-      {map:{playerAt:{x:1280, y:820}, quest:'Về nơi mọi thứ bắt đầu ☕', music:'lofi',
+      {map:{playerAt:{x:1280, y:820}, quest:'Về nơi mọi thứ bắt đầu ☕', music:'love',
         goto:{x:240, y:545, ic:'☕', label:'Cà Phê Nợ Nần'},
         npcs:[{char:'baove', x:700, y:480, label:'Bác Bảo Vệ (nghỉ hưu thật rồi)', bark:[
           {who:'baove', expr:'happy', text:'Hai đứa hả! Giờ bác thấy hai đứa là bác cười. Hồi đó thấy là bác... cầm ghế.'},

@@ -43,13 +43,13 @@ html,body{width:100%;height:100%;overflow:hidden;background:#1a1626;
 .hud-pulse{animation:hudPulse .5s}
 @keyframes hudPulse{40%{transform:scale(1.15) rotate(-2deg)}}
 
-/* ---------- Nhiệm vụ ---------- */
-#quest{position:absolute;left:14px;bottom:14px;z-index:40;max-width:520px;
-  background:var(--ink);color:var(--paper);border-radius:14px;padding:10px 18px;
-  font-weight:700;font-size:17px;box-shadow:0 6px 0 rgba(0,0,0,.35);
+/* ---------- Nhiệm vụ (góc trên trái, dưới HUD — không che thoại) ---------- */
+#quest{position:absolute;left:14px;top:64px;z-index:38;max-width:480px;
+  background:var(--ink);color:var(--paper);border-radius:14px;padding:8px 16px;
+  font-weight:700;font-size:15px;box-shadow:0 6px 0 rgba(0,0,0,.35);
   border:3px solid var(--paper);display:flex;gap:10px;align-items:center;
   animation:questIn .5s cubic-bezier(.34,1.56,.64,1)}
-@keyframes questIn{from{transform:translateY(60px);opacity:0}}
+@keyframes questIn{from{transform:translateY(-40px);opacity:0}}
 #questIc{font-size:22px;animation:bob 1.4s infinite ease-in-out}
 @keyframes bob{50%{transform:translateY(-4px)}}
 
@@ -290,13 +290,19 @@ canvas.mg-canvas{position:absolute;inset:0;width:100%;height:100%}
 #titleChars .tc-r{right:18px;animation-delay:1.2s}
 #titleBox{position:absolute;left:50%;top:50%;transform:translate(-50%,-52%);
   display:flex;flex-direction:column;align-items:center;gap:22px;z-index:5}
-#logoWrap{text-align:center;animation:bob 4s infinite ease-in-out}
-#logoSub{font-size:15px;letter-spacing:4px;color:#ffe3f1;font-weight:700;
+#logoWrap{text-align:center;animation:bob 4s infinite ease-in-out;position:relative}
+#logoSub{font-size:13px;letter-spacing:3px;color:#ffe3f1;font-weight:700;
   text-shadow:0 2px 0 rgba(0,0,0,.4);margin-bottom:4px}
-#logo{font-size:110px;line-height:.92;color:var(--yellow);font-weight:800;
-  text-shadow:0 6px 0 var(--ink),0 12px 0 rgba(0,0,0,.35);letter-spacing:2px}
-#logo span{display:block;font-size:56px;color:var(--paper);letter-spacing:14px;
+#logo{font-size:96px;line-height:.9;color:var(--pink);font-weight:800;
+  text-shadow:0 6px 0 var(--ink),0 12px 0 rgba(0,0,0,.35);letter-spacing:10px}
+#logo span{display:block;font-size:86px;color:var(--yellow);letter-spacing:6px;
   transform:rotate(-2deg)}
+#logoPart{position:absolute;right:-56px;top:34px;background:var(--red);color:#fff;
+  font-size:24px;font-weight:800;padding:6px 18px;border-radius:999px;
+  border:4px solid #fff;transform:rotate(12deg);
+  box-shadow:0 5px 0 rgba(0,0,0,.35);animation:stampIn .5s .3s backwards}
+#logoEp{margin-top:10px;font-size:24px;letter-spacing:8px;color:var(--paper);
+  font-weight:800;text-shadow:0 3px 0 rgba(0,0,0,.45)}
 #logoStamp{display:inline-block;margin-top:12px;font-size:17px;font-weight:700;
   color:#fff;background:var(--red);border:3px solid #fff;padding:4px 18px;
   border-radius:999px;transform:rotate(-3deg);box-shadow:0 4px 0 rgba(0,0,0,.35)}
@@ -314,6 +320,26 @@ canvas.mg-canvas{position:absolute;inset:0;width:100%;height:100%}
 .big-btn.alt{background:var(--blue)}
 #titleHint{color:rgba(255,255,255,.75);font-size:14px;font-weight:600;
   text-shadow:0 2px 0 rgba(0,0,0,.4)}
+
+/* ---------- CHÚ THÍCH TIỀN TRUYỆN ---------- */
+#prologue{position:absolute;inset:0;z-index:118;display:flex;align-items:center;
+  justify-content:center;
+  background:radial-gradient(ellipse at 50% 30%,#2b2150,#161129 70%,#0c0918)}
+#prologue::before{content:'';position:absolute;inset:0;opacity:.7;
+  background-image:radial-gradient(rgba(255,255,255,.5) 1px,transparent 1.6px);
+  background-size:90px 70px;animation:cityGlow 4s infinite alternate}
+#proCard{width:760px;background:var(--paper);border:5px solid var(--ink);
+  border-radius:24px;padding:38px 52px;text-align:center;position:relative;
+  box-shadow:0 16px 0 rgba(0,0,0,.5);transform:rotate(-.6deg);
+  animation:panelIn .55s cubic-bezier(.34,1.56,.64,1)}
+#proCard .pro-tag{display:inline-block;font-size:15px;letter-spacing:3px;
+  font-weight:800;color:#fff;background:var(--red);border-radius:999px;
+  padding:5px 20px;border:3px solid var(--ink);transform:rotate(-2deg);
+  box-shadow:var(--shadow)}
+#proCard h2{font-size:36px;margin:14px 0 6px;letter-spacing:1px}
+#proCard p{font-size:19px;line-height:1.6;font-weight:600;margin-top:12px}
+#proCard .pro-em{font-style:italic;color:var(--purple);font-weight:700}
+#proCard .big-btn{margin-top:20px}
 
 /* ---------- KẾT THÚC ---------- */
 #ending{position:absolute;inset:0;z-index:120;display:flex;align-items:center;

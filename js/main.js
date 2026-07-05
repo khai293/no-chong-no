@@ -69,8 +69,8 @@ function showEnding(){
   World.stop();
   Game.setQuest(null);
   Game.clearSave();
-  AudioSys.music('sad');
   const key = STORY.computeEnding();
+  AudioSys.music({love:'love', hero:'lofi', rich:'comedy', than:'mystery'}[key] || 'sad');
   const e = STORY.endings[key];
   const s = Game.state;
   const paras = e.text.split('\n').map(p =>
@@ -145,6 +145,17 @@ function startPlay(chapter){
   $('hud').classList.remove('hidden');
   World.refreshStatic();
   AudioSys.ensure();
+  if(chapter === 0){
+    // chú thích tiền truyện — chỉ hiện khi bắt đầu game mới
+    $('prologue').classList.remove('hidden');
+    AudioSys.music('mystery');
+    $('proGo').onclick = () => {
+      AudioSys.sfx('click');
+      $('prologue').classList.add('hidden');
+      Flow.startChapter(0);
+    };
+    return;
+  }
   Flow.startChapter(chapter);
 }
 

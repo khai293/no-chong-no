@@ -371,7 +371,7 @@ liedetect(opts, cb){
      <div class="lie-hits" id="lieHits">${Array.from({length:need}, ()=>'<span>🔎</span>').join('')}</div>`);
   const face = $('lieFace');
   let time = dur, hits = 0, wrong = 0, twitching = 0, nextTw = rand(1.2, 2.4), over = false;
-  AudioSys.music('tense');
+  AudioSys.music(opts.music || 'tense');
 
   function press(e){
     if(over) return;
@@ -502,7 +502,7 @@ deduce(opts, cb){
       loseText: `${s.name} có bằng chứng ngoại phạm... 😬`});
   }
   MG._cleanup = () => {};
-  AudioSys.music('night');
+  AudioSys.music('mystery');
   MG.msg('SUY LUẬN NÀO! 🧠✨', 1300);
 },
 

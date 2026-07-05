@@ -1,6 +1,8 @@
-# 🎮 Nợ Chồng Nợ
+# 🎮 Love Crime 2.5 — Nợ Chồng Nợ
 
 > **Trinh thám hài hước • Phiêu lưu • Tình cảm** — game web HTML5, chơi ngay trên trình duyệt.
+>
+> 🕰️ **Tiền truyện của series Love Quest** — câu chuyện diễn ra **3 năm trước** các sự kiện của Love Quest 1 và [Love Quest 2: Time Adventure](https://khai293.github.io/love-quest-2-time-adventure/).
 
 🔗 **Chơi ngay:** https://khai293.github.io/no-chong-no/
 

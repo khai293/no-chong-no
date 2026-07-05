@@ -16,7 +16,7 @@ scenes: {
 
 /* ---------- CHƯƠNG 1 ---------- */
 c1_meet: [
-  {bg:'cafe'}, {music:'lofi'},
+  {bg:'cafe'}, {music:'comedy'},
   {who:'sys', text:'Ngày thất nghiệp đầu tiên của {ten}. Lý do mất việc: khai sai giấy tờ 17 lần. Kỷ lục công ty.'},
   {who:'sys', text:'Số dư tài khoản: -200 triệu. Số bạn bè còn liên lạc: 0. Số ly cà phê có thể mua: 0.5.'},
   {who:'chau', expr:'gloom', text:'Nửa ly cà phê... Uống phần trên hay phần dưới đây...'},
@@ -90,7 +90,7 @@ c1_hospital: [
 
 /* ---------- CHƯƠNG 2 ---------- */
 c2_docs: [
-  {bg:'hospital'}, {music:'lofi'},
+  {bg:'hospital'}, {music:'comedy'},
   {who:'bacsi', expr:'normal', text:'Đây, người nhà ký giúp xấp giấy này. Nhanh nhé, tôi còn 47 bệnh nhân và 1 trận bóng lúc 7 giờ.'},
   {who:'chau', expr:'worried', text:'Khoan đã bác sĩ! Bạn cháu... có sao không ạ?!'},
   {who:'bacsi', expr:'normal', text:'Sống. Đẹp trai là đằng khác. Da mặt kiểu đó mà đi làm "nghề nguy hiểm" thì phí — đi quảng cáo sữa rửa mặt có phải giàu rồi không.'},
@@ -435,7 +435,7 @@ c5_nop_end: [
   {do:()=>{ Game.addTrust(8); Game.addDR(-10, 'đứng về phía công lý'); Game.state.flags.heroOffer = true; }},
 ],
 c5_end: [
-  {bg:'sunset'}, {music:'sad'},
+  {bg:'sunset'}, {music:'love'},
   {who:'sys', text:'Hoàng hôn đổ xuống nóc lều xiếc. Hai kẻ từng bị cả thành phố quay lưng, giờ ngồi cạnh nhau trên hai thùng sơn cũ — như hai vị vua trên ngai vàng của riêng mình.'},
   {who:'khai', expr:'normal', text:'Vậy là xong. Giám đốc bị bắt. Anh được minh oan. Em được xóa án "17 lần khai sai". Chỉ còn lại...'},
   {who:'chau', expr:'gloom', text:'...Đống nợ. Nợ thì không ai minh oan giùm.'},
@@ -473,7 +473,7 @@ c6_final: [
 ],
 
 c6_heart_high: [
-  {bg:'sunset'}, {music:'sad'},
+  {bg:'sunset'}, {music:'love'},
   {who:'khai', expr:'normal', text:'Trước khi số phận phán quyết... anh muốn thanh toán một khoản cuối cùng.'},
   {who:'chau', expr:'worried', text:'Khoản gì nữa? Tôi hết tiền THẬT rồi đó. Đến cái nồi cũng đang cầm cố tinh thần rồi.'},
   {who:'khai', expr:'blush', text:'Khoản này không trả bằng tiền. {ten}... em là người đầu tiên tin anh khi anh không còn gì để chứng minh. Người khác tin anh vì chức danh, vì hồ sơ. Còn em tin anh khi anh chỉ còn một quả thận và một cái tên xấu.'},
@@ -486,7 +486,7 @@ c6_heart_high: [
 ],
 
 c6_heart_low: [
-  {bg:'sunset'}, {music:'sad'},
+  {bg:'sunset'}, {music:'love'},
   {who:'khai', expr:'normal', text:'Này. Dù kết quả có thế nào... cảm ơn em. Vì đã không bỏ chạy. Ừ thì em có bán đồ của anh, ăn mất đùi gà của anh, suýt buộc tội nhầm vài người—'},
   {who:'chau', expr:'worried', text:'Cảm ơn hay kể tội?! Chọn MỘT thôi được không?!'},
   {who:'khai', expr:'laugh', text:'Cả hai. Vì đồng bọn kiểu mình là vậy mà: vừa là chủ nợ, vừa là con nợ, vừa là... người duy nhất còn ở lại.'},
