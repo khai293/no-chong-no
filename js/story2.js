@@ -14,9 +14,9 @@ Object.assign(STORY.scenes, {
 m1_call: [
   {bg:'hideout'}, {music:'comedy'},
   {who:'sys', text:'Sáng sớm ở lều xiếc. Điện thoại của {ten} reo — số lạ. Nhạc chuông là bài "Tiền Ơi Về Đi" cài từ hồi còn hy vọng.'},
-  {who:'yta', expr:'happy', text:'Chị {ten} hả~? Em nè~ Y tá Hồng đáng yêu nè~ Báo tin nè: có bà MAI mới nhập viện khoa tim mạch, khai người thân là chị đó~'},
+  {who:'yta', expr:'happy', text:'Chị {ten} hả~? Em nè~ Y tá Hồng đáng yêu nè~ Báo tin nè: có bà MAI mới vào viện nằm phòng theo dõi, khai người thân là chị đó~'},
   {who:'chau', expr:'shock', text:'MẸ TÔI?! Mẹ tôi nhập viện mà cô báo tin bằng giọng đọc quảng cáo trà sữa vậy hả?!', pfx:true},
-  {who:'yta', expr:'normal', text:'Bà ổn rồi nha, nằm theo dõi thôi~ Mà bà dặn em: "đừng báo con bé, nó lo". Nên em... gọi cho chị liền nè~ Em phản bội có chọn lọc lắm~'},
+  {who:'yta', expr:'normal', text:'Bà không sao đâu nha, chỉ mệt nhẹ với huyết áp trồi sụt tí, bác sĩ giữ lại theo dõi cho chắc thôi~ Mà bà dặn em: "đừng báo con bé, nó lo". Nên em... gọi cho chị liền nè~ Em phản bội có chọn lọc lắm~'},
   {who:'chau', expr:'worried', text:'Lần đầu tiên tôi biết ơn tính nhiều chuyện của cô đó Hồng.'},
   {who:'khai', expr:'normal', text:'Đi. Anh đi cùng.'},
   {who:'chau', expr:'shock', text:'KHOAN! Mẹ tôi mà thấy tôi dẫn đàn ông về là bà suy diễn nhanh hơn tốc độ ánh sáng đó! Bà từng đặt tên cho cháu ngoại chỉ vì tôi khen anh giao gas lễ phép!'},
@@ -26,8 +26,8 @@ m1_call: [
 m1_mom: [
   {bg:'hospital'}, {music:'love'},
   {who:'me', expr:'shock', text:'Ơ con gái?! Sao con biết mẹ ở đây? Mẹ dặn con Hồng giấu kỹ rồi mà!'},
-  {who:'chau', expr:'cry', text:'MẸ! Mẹ đau tim mà còn bày đặt giấu con?!'},
-  {who:'me', expr:'normal', text:'Có gì đâu mà rối. Tim mẹ chỉ... hơi mỏi thôi. Máy chạy lâu năm, xuống cấp là đúng quy trình. Bảo hành hết từ đời nào rồi.'},
+  {who:'chau', expr:'cry', text:'MẸ! Mẹ ốm mà còn bày đặt giấu con?!'},
+  {who:'me', expr:'normal', text:'Có gì đâu mà rối. Mẹ chỉ hơi mệt, huyết áp trồi sụt tí thôi. Bác sĩ giữ lại theo dõi vài hôm cho yên tâm, chứ chả bệnh tật gì ghê gớm. Máy chạy lâu năm, bảo dưỡng nhẹ là chuyện thường.'},
   {who:'chau', expr:'angry', text:'Thế BỐ đâu?! Thằng Tí đâu?! Cả nhà không ai báo con một tiếng!'},
   {who:'me', expr:'smug', text:'Mẹ giấu CẢ NHÀ chứ riêng gì con. Bố mày đang đi xa, biết tin lại tất tả bỏ hết mọi thứ chạy về thì khổ. Còn thằng Tí sắp thi — nó mà biết là mượn cớ nghỉ học liền, nó chỉ chờ có thế thôi.'},
   {who:'chau', expr:'dizzy', text:'Mẹ nằm giường bệnh mà điều phối thông tin cả nhà như trung tâm tình báo vậy...'},
@@ -41,7 +41,7 @@ m1_mom: [
       {who:'khai', expr:'shock', text:'?!?!', pfx:true},
       {who:'me', expr:'sparkle', text:'TRỜI ƠI BIẾT NGAY MÀ!! Để mẹ gọi cho dì Bảy báo tin—'},
       {who:'chau', expr:'dizzy', text:'ĐỪNG!! DÌ BẢY LÀ LOA PHƯỜNG SỐNG MẸ ƠI!! Con đùa!! ĐÙA!!'},
-      {who:'me', expr:'gloom', text:'Đùa về hạnh phúc của mẹ. Được. Tim mẹ vừa mỏi thêm 5%.'}]},
+      {who:'me', expr:'gloom', text:'Đùa về hạnh phúc của mẹ. Được. Huyết áp mẹ vừa lên thêm 5%.'}]},
     {ic:'🤡', label:'"Nhân viên giao cơm ạ. Giao 24/7. Tận giường."', reply:[
       {who:'khai', expr:'gloom', text:'(Từ chuyên gia tài chính thành shipper cơm trong một nốt nhạc.)'},
       {who:'me', expr:'think', text:'Giao cơm? Tay trắng trơn? Cơm đâu?'},
@@ -50,14 +50,14 @@ m1_mom: [
   ]},
   {who:'khai', expr:'normal', text:'Cháu chào bác. Cháu là Lucien ạ. Cháu đang cùng {ten} làm... một dự án tài chính.'},
   {who:'me', expr:'happy', text:'Lucien! Tên nghe như tài tử. Ngồi xuống đi cháu. Kể bác nghe hai đứa "làm dự án" kiểu gì nào.'},
-  {who:'sys', text:'Chín mươi phút tiếp theo là vở kịch "dự án tài chính" ly kỳ nhất lịch sử khoa tim mạch — với 0% sự thật, 100% mồ hôi, và một bà mẹ gật gù không tin lấy một chữ.'},
-  {who:'bacsi', expr:'normal', text:'Người nhà bà Mai đâu! Ký giúp tôi ít giấy tờ. Yên tâm — lần này tôi ĐÁNH DẤU SẴN chỗ cần ký. Danh tiếng của cô... tới khoa tim mạch rồi.'},
+  {who:'sys', text:'Chín mươi phút tiếp theo là vở kịch "dự án tài chính" ly kỳ nhất lịch sử phòng theo dõi này — với 0% sự thật, 100% mồ hôi, và một bà mẹ gật gù không tin lấy một chữ.'},
+  {who:'bacsi', expr:'normal', text:'Người nhà bà Mai đâu! Ký giúp tôi ít giấy tờ. Yên tâm — lần này tôi ĐÁNH DẤU SẴN chỗ cần ký. Danh tiếng của cô... khắp bệnh viện đều biết rồi.'},
   {who:'chau', expr:'gloom', text:'Tôi có fan ở mọi khoa của bệnh viện này. Toàn fan phòng hờ.'},
 ],
 m1_leave: [
   {bg:'hospital'}, {music:'sad'},
-  {who:'sys', text:'Trên phiếu hẹn in đậm một dòng: "PHẪU THUẬT TIM NỘI SOI — DỰ KIẾN 200 TRIỆU". Con số nhảy múa trước mắt {ten} như bọn chủ nợ nhảy múa trước lều.'},
-  {do:()=>{ Game.addMoney(-80, 'viện phí đợt đầu của mẹ'); }},
+  {who:'sys', text:'Trên phiếu in đậm một dòng: "THEO DÕI THÊM 2 NGÀY — KHÔNG PHÁT HIỆN BẤT THƯỜNG. Chỉ cần nghỉ ngơi, ăn uống điều độ." {ten} thở phào — nhẹ cả người như vừa được ai đó xóa giùm một khoản nợ.'},
+  {do:()=>{ Game.addMoney(-8, 'viện phí theo dõi của mẹ (nhẹ nhàng thôi)'); }},
   {who:'me', expr:'normal', text:'Lucien nè. Lại đây bác dặn riêng cái này. Con gái bác đó... ngoài miệng mạnh mẽ vậy thôi, chứ tối nào gọi điện cho mẹ xong nó cũng khóc. Từ hồi mất việc.'},
   {who:'khai', expr:'gloom', text:'...Cháu biết ạ. À không— cháu... đoán vậy ạ.'},
   {who:'me', expr:'normal', text:'Bác không biết hai đứa làm "dự án" gì. Nhưng nhìn ánh mắt cháu nhìn nó, bác yên tâm được một nửa. Nửa còn lại... cháu tự chứng minh nghen.'},
@@ -68,11 +68,11 @@ m1_leave: [
   {who:'khai', expr:'worried', text:'D-dạ. Cháu sẽ... tập trả lời phỏng vấn trước ạ.'},
   {who:'me', expr:'gloom', text:'Tập kỹ vào. Ổng chỉ hỏi đúng một câu thôi: "Cậu định để con gái tôi khổ tới bao giờ?"'},
   {who:'khai', expr:'dizzy', text:'(Ghi chú sinh tồn: câu này không trả lời được bằng thống kê. Phải trả lời bằng cả đời.)'},
-  {who:'me', expr:'normal', text:'Con gái. Cầm lấy. 500 nghìn — tiền mẹ giấu trong hộp dầu gió. Đừng cãi. Mẹ già rồi, cãi thua là mệt tim, con muốn mẹ mệt tim không?'},
+  {who:'me', expr:'normal', text:'Con gái. Cầm lấy. 500 nghìn — tiền mẹ giấu trong hộp dầu gió. Đừng cãi. Mẹ mệt sẵn rồi, cãi thua lại mệt thêm, con muốn mẹ mệt không?'},
   {who:'chau', expr:'cry', text:'Mẹ dùng bệnh án để THẮNG CÃI NHAU?! ...Mẹ giữ mà mua cháo! Con sắp giàu rồi! Con có rất nhiều dự án!'},
   {who:'me', expr:'smug', text:'Ừ. Mẹ tin. Như mẹ đã từng tin 17 tờ đơn xin việc của con đều "sắp được nhận".'},
   {who:'chau', expr:'gloom', text:'Nhà này ai cũng có khiếu đâm chọt hết vậy...'},
-  {who:'khai', expr:'think', text:'(200 triệu. Một tháng. ...Được. Sẽ có cách. Kiểu gì cũng phải có cách.)'},
+  {who:'khai', expr:'think', text:'(Cả nhà giấu bệnh chỉ vì sợ làm phiền nhau... Kiểu gia đình này, mình phải học cách cho xứng đáng mới được.)'},
   {do:()=>{ Game.state.flags.khaiFollow = false; }},
 ],
 
@@ -83,7 +83,7 @@ n1_debtors: [
   {who:'khai', expr:'gloom', text:'Sáu Lãi. Trùm gom nợ cả khu này. Nghe đồn hắn đòi nợ bằng cách... hát bolero trước cửa nhà con nợ. 24/7. Cho tới khi trả.'},
   {who:'chau', expr:'shock', text:'ĐÒI NỢ BẰNG BOLERO?!'},
   {who:'chuno', expr:'smug', text:'Chuẩn. Loa kẹo kéo sạc đầy 3 cục pin. Playlist 400 bài toàn nhạc thất tình. Ngày thứ ba là hàng xóm sẽ GÓP TIỀN trả nợ giùm hai người. Hiệu quả 100%.'},
-  {who:'chuno', expr:'normal', text:'Vào việc: tổng nợ gốc lẫn lãi của hai người, cộng khoản viện phí ký nợ bệnh viện — tròn 350 triệu. Hạn 3 ngày. Không trả — ta dựng sân khấu.'},
+  {who:'chuno', expr:'normal', text:'Vào việc: tổng nợ gốc lẫn lãi của hai người — tròn 350 triệu, tính cả tiền đền cửa kính ngân hàng với cái xe cảnh sát bẹp dúm. Hạn 3 ngày. Không trả — ta dựng sân khấu.'},
   {choice:[
     {ic:'😇', label:'"Anh Sáu cho tụi em khất thêm..."', reply:[
       {who:'chuno', expr:'normal', text:'Khất hả? Được. Nhưng lãi khất tính bằng YÊU CẦU BÀI HÁT. Mỗi ngày khất, ta hát tặng một bài. Chọn đi: "Đắp Mộ Cuộc Tình" hay "Nợ Anh Một Đời"?'},
@@ -149,7 +149,7 @@ k2_confront: [
   {bg:'night'}, {music:'sad'},
   {who:'khai', expr:'shock', text:'{ten}?! Sao em tìm ra chỗ này—'},
   {who:'chau', expr:'cry', text:'HAI ĐÙI GÀ!! Anh lộ bài từ HAI ĐÙI GÀ đó đồ ngốc!!! Người keo kiệt chỉ hào phóng đúng một lần trong đời — là lúc định làm chuyện DẠI DỘT!!! XUỐNG KHỎI CÁI BÀN MỔ ĐÓ NGAY!!!', pfx:true},
-  {who:'khai', expr:'gloom', text:'Anh tính kỹ rồi. Tờ rơi ghi NĂM TỶ một quả. Năm tỷ, {ten}! Trả sạch nợ, lo được viện phí cho bác, còn dư làm lại từ đầu. Còn anh... người ta sống được với một quả thận mà. Đáng chứ.'},
+  {who:'khai', expr:'gloom', text:'Anh tính kỹ rồi. Tờ rơi ghi NĂM TỶ một quả. Năm tỷ, {ten}! Trả sạch nợ, lo cho cả nhà bác tử tế, còn dư làm lại từ đầu. Còn anh... người ta sống được với một quả thận mà. Đáng chứ.'},
   {who:'chau', expr:'angry', text:'TỪ TỪ TÍNH?! Anh nghe lại câu anh vừa nói đi! KHÔNG AI "TỪ TỪ TÍNH" VỚI 0 QUẢ THẬN HẾT!!'},
   {who:'chau', expr:'cry', text:'Anh từng nói với tôi: mất người tin mình thì sống như trả góp từng ngày. Vậy anh nghĩ tôi sẽ sống kiểu gì... nếu không còn anh?!'},
   {who:'chau', expr:'cry', text:'Tôi cần mẹ. Nhưng tôi cũng cần ANH. Anh chưa học phép CỘNG hả?! Người ta có quyền cần CẢ HAI!!'},
@@ -162,11 +162,11 @@ k2_confront: [
   {who:'bacsi', expr:'gloom', text:'Tôi TRÀ TRỘN, cô ơi. Gom bằng chứng cho công an suốt ba tháng nay. Còn cậu kia — NĂM TỶ? Cậu tin số đó thật à?! Đó là MỒI CÂU của tụi đa cấp! Mổ xong tụi nó dúi cho vài chục triệu là cùng, rồi bắt cậu ở lại làm TUYẾN DƯỚI đi lừa người khác. Cậu là chuyên gia tài chính mà mắc bẫy con số trên trời...'},
   {who:'khai', expr:'dizzy', text:'Một quả thận... suýt đổi bằng đúng cái bẫy mà cả đời anh chuyên đi giăng cho người khác. Nghiệp quật đau thật đấy.'},
   {who:'batu', expr:'normal', text:'NGHE HẾT RỒI NHA MẤY ĐỨA. Trời ơi, hai đứa bây diễn cảm động hơn phim truyền hình 8 giờ tối.'},
-  {who:'batu', expr:'smug', text:'Nè. 200 triệu. Cho MƯỢN — không lãi. Lo cho bà chị sui... à nhầm, bà mẹ, xong xuôi thì trả tao bằng 20 đêm nhạc. Cấm cãi.'},
+  {who:'batu', expr:'smug', text:'Nè. 200 triệu. Cho MƯỢN — không lãi. Trả bớt cái đống nợ đi, dựng lại cái lều rách cho tử tế, xong xuôi thì trả tao bằng 20 đêm nhạc. Cấm cãi.'},
   {who:'chau', expr:'cry', text:'Bà Tư... sao tự nhiên bà tốt vậy...'},
   {who:'batu', expr:'evil', text:'ĐỪNG HIỂU LẦM! Tao đầu tư vào CẢM XÚC thôi! Nghe chưa! Còn khóc nữa là tao TÍNH LÃI đó!!'},
-  {who:'sys', text:'Ca phẫu thuật của bà Mai được đặt lịch ngay tối hôm đó. Còn hồ sơ dày cộp của Bác sĩ Mập về "Thận Phát Lộc" — sáng hôm sau đã nằm ngay ngắn trên bàn Đội trưởng Lâm.'},
-  {do:()=>{ Game.addTrust(20); Game.addDR(5, 'phá cửa tiệm gấu bông (lần 2 trong tháng)'); Game.state.flags.momSurgery = true; }},
+  {who:'sys', text:'Bà Mai được cho về nhà ngay hôm sau — bác sĩ dặn chỉ cần nghỉ ngơi, ăn uống điều độ là khỏe. Còn hồ sơ dày cộp của Bác sĩ Mập về "Thận Phát Lộc" — sáng hôm sau đã nằm ngay ngắn trên bàn Đội trưởng Lâm.'},
+  {do:()=>{ Game.addTrust(20); Game.addDR(5, 'phá cửa tiệm gấu bông (lần 2 trong tháng)'); Game.state.flags.momOK = true; }},
 ],
 k2_home: [
   {bg:'hideout'}, {music:'love'},
@@ -180,7 +180,7 @@ k2_home: [
 /* ========== CH9: TẬP LÀM NGƯỜI LƯƠNG THIỆN ========== */
 l1_shop: [
   {bg:'hideout'}, {music:'comedy'},
-  {who:'sys', text:'Sau cơn bão mang tên Ngân hàng Đại Phát, mẹ đã mổ xong và đang hồi phục thần tốc (bác sĩ bảo: "tim bà khỏe hơn tim tôi"). Hai kẻ nợ quyết định thử một điều chưa từng làm: SỐNG LƯƠNG THIỆN.'},
+  {who:'sys', text:'Sau cơn bão mang tên Ngân hàng Đại Phát, mẹ đã xuất viện và khỏe re (bác sĩ bảo: "bà khỏe hơn cả tôi, về nhà đi bộ với tập dưỡng sinh là được"). Hai kẻ nợ quyết định thử một điều chưa từng làm: SỐNG LƯƠNG THIỆN.'},
   {who:'khai', expr:'happy', text:'Khai trương: "CÀ PHÊ NỢ CŨ 0.5"! Gọi là chi nhánh 0.5 vì... chưa đủ tiền làm chi nhánh 1.'},
   {who:'chau', expr:'sparkle', text:'Menu em viết xong rồi nè! "Cà phê đen: 15k. Cà phê sữa: 18k. Cà phê pha bằng nước mắt khởi nghiệp: miễn phí — tự phục vụ, nguồn nguyên liệu dồi dào."'},
   {who:'khai', expr:'normal', text:'Muốn bán được hàng thì hình ảnh phải chuyên nghiệp. Đi thay đồ. Hôm nay chúng ta là BARISTA.'},
@@ -198,13 +198,13 @@ l1_day: [
 l1_mom: [
   {bg:'sunset'}, {music:'love'},
   {who:'me', expr:'normal', text:'Quán xá gì mà tuềnh toàng vậy hai đứa? Cái biển hiệu viết bằng bút xóa hả?'},
-  {who:'chau', expr:'shock', text:'MẸ?! Mẹ mới mổ xong mà đi tận đây?! Mà... SAO MẸ BIẾT CHỖ NÀY?!', pfx:true},
+  {who:'chau', expr:'shock', text:'MẸ?! Mẹ mới xuất viện mà đi tận đây?! Mà... SAO MẸ BIẾT CHỖ NÀY?!', pfx:true},
   {who:'me', expr:'smug', text:'Mẹ biết từ lâu rồi. Từ cái hôm thời sự chiếu tin "CƯỚP NGÂN HÀNG HỤT — HAI NGHI PHẠM CÕNG NHAU BỎ CHẠY". Con che mặt nhưng đôi dép thì không che. Đôi dép đó MẸ MUA.'},
   {who:'chau', expr:'dizzy', text:'Vậy tờ "giấy cam kết không xem thời sự" con ký ở bệnh viện...'},
   {who:'me', expr:'normal', text:'Mẹ ký xong xem tiếp chứ sao. Mẹ già chứ mẹ có ngoan đâu con.'},
   {who:'me', expr:'normal', text:'Còn cậu. "Chuyên gia tài chính" hả? Bác biết hết rồi. Biết cả... vụ cái thận. Con Hồng kể. Nó kể có nhạc nền luôn.'},
   {who:'khai', expr:'gloom', text:'Bác... cháu xin lỗi. Vì đã nói dối bác ngay lần đầu gặp mặt.'},
-  {who:'me', expr:'normal', text:'Vụ nói dối — bác giận. Cái vụ dại dột tin quảng cáo 5 tỷ suýt mất quả thận — bác cũng giận. Nhưng lúc hai mắt sáng rực vì con số trên trời đó, trong đầu nó vẫn kịp tính chuyện lo viện phí cho một bà già KHÔNG PHẢI mẹ nó... thì bác giận không nổi. Cái đó người ta gọi là gì hả trời. À. Là NGHĨA. Chữ đó giờ hiếm lắm.'},
+  {who:'me', expr:'normal', text:'Vụ nói dối — bác giận. Cái vụ dại dột tin quảng cáo 5 tỷ suýt mất quả thận — bác cũng giận. Nhưng lúc hai mắt sáng rực vì con số trên trời đó, trong đầu nó vẫn kịp tính chuyện lo cho một bà già KHÔNG PHẢI mẹ nó... thì bác giận không nổi. Cái đó người ta gọi là gì hả trời. À. Là NGHĨA. Chữ đó giờ hiếm lắm.'},
   {who:'me', expr:'gloom', text:'Nhà bác bốn người — ai cũng ôm khư khư một thứ: bố nó ôm cái đài cũ, thằng Tí ôm đống sách, còn con bé này thì ôm... nợ. Bác không cần thêm một đứa giàu. Bác chỉ cần thêm một đứa — lúc nhà cháy không chạy trước.'},
   {who:'khai', expr:'normal', text:'Cháu cam kết chạy sau cùng ạ. Có gì cháu cõng — cháu quen việc đó rồi.'},
   {who:'me', expr:'laugh', text:'Ừ, nghe đồn cõng giỏi lắm. Thời sự quay rõ nét lắm. Chạy cũng nhanh nữa.'},
@@ -408,18 +408,18 @@ b2_found: [
   const HOSP = {x:1940, y:390};  // cửa bệnh viện
   const TENT = {x:1280, y:800};  // cửa lều
 
-  const CH_ME = { title:'"MẸ ƠI, ĐỪNG XEM THỜI SỰ"', stamp:'💗 khoa tim mạch gọi tên',
+  const CH_ME = { title:'"MẸ ƠI, ĐỪNG XEM THỜI SỰ"', stamp:'💗 mẹ ốm nhẹ, con hốt hoảng',
     steps:[
       {vn:'m1_call'},
       {map:{playerAt:{x:1280, y:820}, quest:'Đến Bệnh Viện Số 7 thăm mẹ 🏥', music:'lofi',
         goto:{x:HOSP.x, y:HOSP.y, ic:'🏥', label:'Bệnh viện'}}},
       {vn:'m1_mom'},
       {mg:'papers', opts:{papers:[
-        {title:'ĐƠN THUỐC TIM MẠCH', fine:'Sáng 1 viên, tối 1 viên. Tuyệt đối không uống chung với trà sữa. (Quy định mới sau một sự cố ở khoa.)', good:true},
+        {title:'ĐƠN THUỐC BỔ + HẠ HUYẾT ÁP', fine:'Sáng 1 viên, tối 1 viên, uống sau ăn. Tuyệt đối không uống chung với trà sữa. (Quy định mới sau một sự cố ở khoa.)', good:true},
         {title:'GÓI "GYM NGƯỜI CAO TUỔI VIP"', fine:'Hợp đồng 10 năm, tặng bình giữ nhiệt. Thanh toán một lần: 60 triệu. Người giới thiệu: Y tá H.', good:false},
-        {title:'GIẤY CAM KẾT KHÔNG XEM THỜI SỰ', fine:'Bệnh nhân tim mạch cần tránh tin giật gân: cướp ngân hàng, trộm két, đa cấp nội tạng, giá xăng...', good:true, time:6},
+        {title:'GIẤY CAM KẾT KHÔNG XEM THỜI SỰ', fine:'Bệnh nhân đang nằm theo dõi cần tránh tin giật gân: cướp ngân hàng, trộm két, đa cấp nội tạng, giá xăng...', good:true, time:6},
         {title:'ĐƠN NHẬN NUÔI MÈO BỆNH VIỆN', fine:'Mèo tên "Viện Phí", ăn khỏe gấp ba mèo thường, đã cắn 4 người nhà bệnh nhân. Hợp đồng trọn đời.', good:false},
-        {title:'PHIẾU HẸN PHẪU THUẬT TIM', fine:'Phẫu thuật nội soi cho bà Mai. Chi phí dự kiến: 200 triệu. Ký để giữ lịch — chưa cần đóng ngay.', good:true, time:6},
+        {title:'PHIẾU HẸN TÁI KHÁM', fine:'Bà Mai chỉ cần nghỉ ngơi, hẹn tái khám sau 1 tuần cho chắc. Viện phí theo dõi: vài trăm nghìn. Ký xác nhận đã đọc lời dặn.', good:true, time:6},
       ]}, after(res){
         if(res.wrong === 0) Game.addDR(-5, 'ký chuẩn từng tờ trước mặt mẹ');
         else Game.addDR(Math.min(12, res.wrong*6), 'suýt nhận nuôi mèo Viện Phí');
