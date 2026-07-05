@@ -65,7 +65,7 @@ const MG_GAMES = {
 lookout(opts, cb){
   const body = MG.frame('👀 CANH CỬA "DỄ LẮM"', 'Nhấp vào người qua đường để đuổi họ đi! Đừng để ai tới cửa!',
     `<div class="mg-bar-wrap"><span>🚨 BÁO ĐỘNG</span><div class="mg-bar"><div class="fill" id="alarmFill" style="width:0%"></div></div></div>
-     <div class="mg-bar-wrap" style="top:46px"><span>🔓 KHẢI PHÁ KHÓA</span><div class="mg-bar"><div class="fill" id="lockFill" style="width:0%;background:linear-gradient(90deg,#4cc9f0,#2ec4b6)"></div></div></div>
+     <div class="mg-bar-wrap" style="top:46px"><span>🔓 LUCIEN PHÁ KHÓA</span><div class="mg-bar"><div class="fill" id="lockFill" style="width:0%;background:linear-gradient(90deg,#4cc9f0,#2ec4b6)"></div></div></div>
      <canvas class="mg-canvas" id="mgCv"></canvas>`);
   const cv = $('mgCv');
   cv.width = body.clientWidth; cv.height = body.clientHeight;
@@ -130,7 +130,7 @@ lookout(opts, cb){
       peds = peds.filter(p => p.x > -60 && p.x < W + 60);
       bubbles = bubbles.filter(b => (b.t += dt) < 1.6);
       if(alarm >= 3){ over = true; cb({success: false, alarm, loseText: 'BÁO ĐỘNG RỒI!! 🚨'}); return; }
-      if(lock >= 100){ over = true; cb({success: true, alarm, winText: 'KHẢI MỞ ĐƯỢC CỬA! 🔓'}); return; }
+      if(lock >= 100){ over = true; cb({success: true, alarm, winText: 'LUCIEN MỞ ĐƯỢC CỬA! 🔓'}); return; }
     }
     // vẽ
     g.fillStyle = '#cdd5e8'; g.fillRect(0, 0, W, H);
@@ -170,7 +170,7 @@ lookout(opts, cb){
   MG._raf = requestAnimationFrame(loop);
 },
 
-/* ============== 2. CÕNG KHẢI CHẠY TRỐN ============== */
+/* ============== 2. CÕNG LUCIEN CHẠY TRỐN ============== */
 escape(opts, cb){
   const night = opts.night;
   const body = MG.frame(opts.title || '🏃 CÕNG "NẠN NHÂN" BỎ CHẠY', 'Phím ▲▼ (hoặc chạm nửa trên/dưới) để né chướng ngại!',
@@ -248,7 +248,7 @@ escape(opts, cb){
     // chướng ngại
     g.font = '46px sans-serif'; g.textAlign = 'center';
     for(const o of obs) g.fillText(o.e, o.x, LANES[o.lane] + 16);
-    // Châu cõng Khải
+    // Châu cõng Lucien
     if(inv <= 0 || Math.floor(time*12)%2 === 0){
       drawChibi(g, 190, py, 'right', time*70, 'chau', {walking:true});
       drawChibi(g, 172, py - 26, 'right', time*70+4, 'khai', {walking:false});
@@ -504,5 +504,125 @@ deduce(opts, cb){
   MG._cleanup = () => {};
   AudioSys.music('night');
   MG.msg('SUY LUẬN NÀO! 🧠✨', 1300);
+},
+
+/* ============== 7. ĐÊM NHẠC KARAOKE ============== */
+karaoke(opts, cb){
+  const body = MG.frame(opts.title || '🎤 ĐÊM NHẠC CHỢ ĐEN',
+    'Nhấn SPACE (hoặc chạm) đúng lúc nốt nhạc bay vào vòng sáng!',
+    `<div class="mg-timer" id="kCombo">🎵 x0</div>
+     <canvas class="mg-canvas" id="mgCv"></canvas>`);
+  const cv = $('mgCv');
+  cv.width = body.clientWidth; cv.height = body.clientHeight;
+  const g = cv.getContext('2d');
+  const W = cv.width, H = cv.height;
+  const TX = 200, TY = H * 0.38;
+  const total = opts.notes || 14;
+  const gapT = opts.gap || 1.0;
+  const notes = [];
+  for(let i = 0; i < total; i++) notes.push({t: 2.2 + i*gapT + (i%4===3 ? 0.5 : 0), hit:false, gone:false, x:0});
+  const speed = 230;
+  const lastNoteT = notes[notes.length-1].t;
+  const scale = [392, 440, 494, 523, 587, 659, 698, 784];
+  const CROWD = ['🧔','👵','👮','🧑','👩','🐕','🧓'];
+  let time = 0, hits = 0, combo = 0, over = false, flash = 0, shakeT = 0;
+
+  function press(e){
+    if(over) return;
+    if(e && e.code && e.code !== 'Space') return;
+    if(e && e.preventDefault) e.preventDefault();
+    let best = null, bd = 44;
+    for(const n of notes){
+      if(n.hit || n.gone) continue;
+      const d = Math.abs(n.x - TX);
+      if(d < bd){ bd = d; best = n; }
+    }
+    if(best){
+      best.hit = true; hits++; combo++; flash = 0.3;
+      if(AudioSys.ensure() && !AudioSys.muted)
+        AudioSys.note(scale[combo % scale.length], AudioSys.ctx.currentTime, .3, 'triangle', .3);
+      $('kCombo').textContent = '🎵 x' + combo;
+    } else {
+      combo = 0; shakeT = 0.3;
+      AudioSys.sfx('bad');
+      $('kCombo').textContent = '🎵 x0';
+    }
+  }
+  function onKey(e){ if(e.code === 'Space') press(e); }
+  function onTap(){ press(); }
+  document.addEventListener('keydown', onKey);
+  cv.addEventListener('pointerdown', onTap);
+  MG._cleanup = () => {
+    document.removeEventListener('keydown', onKey);
+    cv.removeEventListener('pointerdown', onTap);
+    AudioSys.music('lofi');
+  };
+  AudioSys.music(null);
+  MG.msg('🎤 MIC ĐÃ LÊN NGUỒN!', 1400);
+
+  let last = performance.now();
+  function loop(now){
+    const dt = Math.min(0.05, (now - last) / 1000); last = now;
+    if(!over){
+      time += dt;
+      flash = Math.max(0, flash - dt); shakeT = Math.max(0, shakeT - dt);
+      for(const n of notes){
+        n.x = TX + (n.t - time) * speed;
+        if(!n.hit && !n.gone && n.x < TX - 56){ n.gone = true; combo = 0; $('kCombo').textContent = '🎵 x0'; }
+      }
+      if(time > lastNoteT + 1.6){
+        over = true;
+        const need = Math.ceil(total * 0.6);
+        cb({success: hits >= need, hits, total,
+          winText: 'KHÁN GIẢ PHÁT CUỒNG!! 🌟', loseText: 'CÓ NGƯỜI ĐÒI VÉ... 😅'});
+        return;
+      }
+    }
+    // sân khấu
+    g.fillStyle = '#1c1630'; g.fillRect(0, 0, W, H);
+    for(let i = 0; i < 5; i++){
+      g.fillStyle = ['#ff6fa5','#4cc9f0','#ffd166','#2ec4b6','#b477d9'][i] + '22';
+      const bx = (i*230 + time*40) % (W+200) - 100;
+      g.fillRect(bx, 0, 90, H);
+    }
+    // đèn sân khấu
+    const grad = g.createRadialGradient(150, H*0.8, 30, 150, H*0.8, 320);
+    grad.addColorStop(0, 'rgba(255,230,170,.35)'); grad.addColorStop(1, 'rgba(255,230,170,0)');
+    g.fillStyle = grad; g.fillRect(0, 0, W, H);
+    // thanh nốt nhạc
+    g.strokeStyle = 'rgba(255,248,239,.25)'; g.lineWidth = 3;
+    g.beginPath(); g.moveTo(0, TY); g.lineTo(W, TY); g.stroke();
+    // vòng mục tiêu
+    const pu = (Math.sin(time*6)+1)/2;
+    g.strokeStyle = flash > 0 ? '#ffd166' : 'rgba(255,111,165,.9)';
+    g.lineWidth = 6 + (flash > 0 ? 5 : pu*2);
+    g.beginPath(); g.arc(TX, TY, 38, 0, Math.PI*2); g.stroke();
+    g.fillStyle = 'rgba(255,111,165,.15)';
+    g.beginPath(); g.arc(TX, TY, 34, 0, Math.PI*2); g.fill();
+    // nốt nhạc
+    g.font = '38px sans-serif'; g.textAlign = 'center';
+    for(const n of notes){
+      if(n.hit || n.gone || n.x > W + 40) continue;
+      g.fillText('🎵', n.x, TY + 13 + Math.sin(n.t*7 + time*4)*6);
+    }
+    // ca sĩ
+    const sx = 150 + (shakeT > 0 ? rand(-4,4) : 0);
+    drawChibi(g, sx, H*0.8, 'right', time*50, 'chau', {walking:false});
+    g.font = '26px sans-serif';
+    g.fillText('🎤', sx + 26, H*0.8 - 14 + Math.sin(time*5)*3);
+    if(opts.duet){
+      drawChibi(g, sx - 52, H*0.8, 'right', time*50 + 8, 'khai', {walking:false});
+      g.fillText('🎤', sx - 30, H*0.8 - 14 + Math.cos(time*5)*3);
+    }
+    // khán giả
+    g.font = '30px sans-serif';
+    for(let i = 0; i < 9; i++){
+      const cx = 80 + i*((W-160)/8);
+      g.fillText(CROWD[i % CROWD.length], cx, H - 16 + Math.sin(time*4 + i)*(combo > 4 ? 8 : 3));
+      if(combo > 7 && i % 3 === 0) g.fillText('✨', cx + 18, H - 46 + Math.sin(time*6+i)*6);
+    }
+    if(!over) MG._raf = requestAnimationFrame(loop);
+  }
+  MG._raf = requestAnimationFrame(loop);
 },
 };

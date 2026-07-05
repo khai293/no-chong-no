@@ -22,7 +22,10 @@ c1_meet: [
   {who:'chau', expr:'gloom', text:'Nửa ly cà phê... Uống phần trên hay phần dưới đây...'},
   {who:'khai', expr:'smug', text:'Xin chào. Tôi để ý em từ nãy — người duy nhất trong quán nhìn ly cà phê như nhìn người yêu cũ.'},
   {who:'chau', expr:'shock', text:'Hả?! Anh là ai? Nhân viên đòi nợ hả?! Tôi... tôi có kế hoạch trả góp mà!'},
-  {who:'khai', expr:'smug', text:'Bình tĩnh. Tôi là Khải — chuyên gia tài chính PHI TRUYỀN THỐNG. Tôi giúp người ta... giàu nhanh.'},
+  {who:'khai', expr:'smug', text:'Bình tĩnh. Tôi là Lucien — chuyên gia tài chính PHI TRUYỀN THỐNG. Tôi giúp người ta... giàu nhanh.'},
+  {who:'chau', expr:'think', text:'Lucien? Người Việt trăm phần trăm mà tên Lucien?'},
+  {who:'khai', expr:'smug', text:'Nghề của tôi cần thương hiệu quốc tế. Khách nghe "chuyên gia Lucien" là xuống tiền nhanh gấp ba lần. Tôi có thống kê hẳn hoi.'},
+  {who:'chau', expr:'gloom', text:'(Thống kê từ ba phi vụ gần nhất chắc luôn.)'},
   {choice:[
     {ic:'😇', label:'"Phi truyền thống" nghĩa là gì ạ?', reply:[
       {who:'khai', expr:'think', text:'Nghĩa là... không theo truyền thống. Ngân hàng giữ tiền của dân, tôi giúp dân... giữ lại tiền của ngân hàng.'},
@@ -156,12 +159,12 @@ c2_home: [
 /* ---------- CHƯƠNG 3 ---------- */
 c3_batu: [
   {bg:'market'}, {music:'night'},
-  {who:'batu', expr:'smug', text:'Ồ, con bé mà thằng Khải nhắc suốt đây hả. Nghe nói mày ký giấy "hay" lắm.'},
+  {who:'batu', expr:'smug', text:'Ồ, con bé mà thằng Lucien nhắc suốt đây hả. Nghe nói mày ký giấy "hay" lắm.'},
   {who:'chau', expr:'gloom', text:'Tin đồn lan tới CHỢ ĐEN rồi cơ à...'},
   {who:'batu', expr:'normal', text:'Ở đây ai cũng có "thành tích". Con Hồng y tá tuần trước bán nhầm sữa rửa mặt cho khoa nhi làm sữa tắm. Không sao cả.'},
   {who:'batu', expr:'smug', text:'Mà khoan. Nhìn trời nắng ghê ha. Cưng mua cặp KÍNH RÂM không? Mua 1 tặng 1, giới thiệu bạn nhận hoa hồng 3 tầng, tầng 4 được đi du lịch—'},
-  {who:'chau', expr:'shock', text:'(KHẢI CẢNH BÁO RỒI!! KHÔNG NHÌN VÀO KÍNH!!) D-dạ cháu bị... dị ứng thời trang bẩm sinh ạ!!'},
-  {who:'batu', expr:'gloom', text:'Chậc. Lại một con mồi được huấn luyện trước. Thằng Khải phá hoại hệ sinh thái kinh doanh của tao.'},
+  {who:'chau', expr:'shock', text:'(LUCIEN CẢNH BÁO RỒI!! KHÔNG NHÌN VÀO KÍNH!!) D-dạ cháu bị... dị ứng thời trang bẩm sinh ạ!!'},
+  {who:'batu', expr:'gloom', text:'Chậc. Lại một con mồi được huấn luyện trước. Thằng Lucien phá hoại hệ sinh thái kinh doanh của tao.'},
   {who:'batu', expr:'smug', text:'Việc cho mày đây: đem GẤU BÔNG này giao cho Ông Cầm Đồ cuối phố. Công 40 triệu.'},
   {who:'chau', expr:'shock', text:'BỐN MƯƠI TRIỆU?! Cho một con gấu bông?! Bên trong có gì vậy?!'},
   {who:'batu', expr:'evil', text:'Quy tắc số 1 của chợ đen: KHÔNG. HỎI. BÊN. TRONG.'},
@@ -176,7 +179,7 @@ c3_batu: [
     {ic:'🤡', label:'"Gấu có tên chưa ạ? Em định gọi nó là Nợ."', trust:0, reply:[
       {who:'batu', expr:'dizzy', text:'... Nó là HÀNG HÓA, không phải thú cưng!'},
       {who:'chau', expr:'happy', text:'Chào Nợ. Chị sẽ đưa em về nhà mới.'},
-      {who:'batu', expr:'gloom', text:'Thằng Khải nợ tao một lời giải thích về con nhỏ này.'}]},
+      {who:'batu', expr:'gloom', text:'Thằng Lucien nợ tao một lời giải thích về con nhỏ này.'}]},
   ]},
   {who:'batu', expr:'normal', text:'À quên. Dạo này cảnh sát tuần tra gắt lắm. Mày nên HÓA TRANG một chút. Đồ hóa trang ở thùng kia kìa.'},
   {who:'chau', expr:'worried', text:'Hóa trang thành gì bây giờ...'},
@@ -191,15 +194,15 @@ c3_deliver: [
   {who:'chau', expr:'dizzy', text:'Tôi vừa vận chuyển... răng của các cụ... qua ba con phố... với 40 triệu tiền công?!'},
   {who:'camdo', expr:'smug', text:'Răng vàng là tài sản nghiêm túc đấy cô ơi! Có cụ gửi răng để lấy tiền chơi hụi. Kinh tế ngầm phường này sôi động lắm.'},
   {do:()=>{ Game.addMoney(40, 'tiền công giao "gấu"'); }},
-  {who:'camdo', expr:'normal', text:'À mà khoan. Cái ĐỒNG HỒ cô đeo... nhìn quen lắm. Của thằng Khải đúng không? Lão trả 15 triệu. Bán không?'},
+  {who:'camdo', expr:'normal', text:'À mà khoan. Cái ĐỒNG HỒ cô đeo... nhìn quen lắm. Của thằng Lucien đúng không? Lão trả 15 triệu. Bán không?'},
   {who:'chau', expr:'shock', text:'Ơ, cái này tôi cầm nhầm của anh ấy lúc ở bệnh viện...'},
   {choice:[
     {ic:'😇', label:'"Không bán! Đồ của bạn tôi!"', trust:5, reply:[
       {who:'camdo', expr:'gloom', text:'Chậc. Trung thành thế. Thời buổi này hiếm lắm đó.'},
-      {who:'chau', expr:'normal', text:'(Mình giữ được đồ của Khải! Cộng điểm đạo đức!)'}]},
-    {ic:'😈', label:'"15?! 20 thì bán!" (bán luôn)', money:20, dr:20, why:'bán nhầm đồ của Khải', flag:'soldWatch', reply:[
+      {who:'chau', expr:'normal', text:'(Mình giữ được đồ của Lucien! Cộng điểm đạo đức!)'}]},
+    {ic:'😈', label:'"15?! 20 thì bán!" (bán luôn)', money:20, dr:20, why:'bán nhầm đồ của Lucien', flag:'soldWatch', reply:[
       {who:'camdo', expr:'laugh', text:'Khà khà, 20 thì 20! Lão thích người dứt khoát!'},
-      {who:'chau', expr:'worried', text:'(Khải chắc... không để ý đâu nhỉ? Chắc vậy. Hy vọng vậy. Trời ơi.)'}]},
+      {who:'chau', expr:'worried', text:'(Lucien chắc... không để ý đâu nhỉ? Chắc vậy. Hy vọng vậy. Trời ơi.)'}]},
     {ic:'🤡', label:'"Đổi đồng hồ lấy cái nồi kia được không?"', dr:5, why:'giao dịch khó hiểu', reply:[
       {who:'camdo', expr:'dizzy', text:'Cái nồi đó 200 nghìn, đồng hồ kia 15 TRIỆU. Cô chắc chưa?'},
       {who:'chau', expr:'happy', text:'Nồi nấu được mì. Đồng hồ có nấu được đâu.'},
@@ -242,7 +245,7 @@ c3_watch_sold: [
   {who:'khai', expr:'shock', text:'EM BÁN NÓ?! Đó là quà của sếp cũ trước khi ổng... đổ tội cho anh!! Nó có GIÁ TRỊ TINH THẦN!'},
   {who:'chau', expr:'shock', text:'Khoan. Sếp cũ? Đổ tội? Anh chưa từng kể vụ này!'},
   {who:'khai', expr:'gloom', text:'...Quên đi. Chuyện cũ. Ngủ sớm, mai còn cày trả nợ.', pfx:true},
-  {who:'sys', text:'{ten} ghi vào sổ trinh thám: "Khải + sếp cũ + bị đổ tội = ĐÁNG NGỜ. Điều tra sau khi hết nghèo."'},
+  {who:'sys', text:'{ten} ghi vào sổ trinh thám: "Lucien + sếp cũ + bị đổ tội = ĐÁNG NGỜ. Điều tra sau khi hết nghèo."'},
   {do:()=>{ Game.addTrust(-10); }},
 ],
 
@@ -331,7 +334,7 @@ c4_solve: [
   {who:'khai', expr:'dizzy', text:'Trộm 300 triệu vì... thẻ tích điểm trà sữa. Thế hệ này hết cứu.'},
   {who:'batu', expr:'angry', text:'CON RANH! Trả két đây! Còn 60 triệu của con {ten}... khoan đã.'},
   {who:'yta', expr:'evil', text:'Khoan gì mà khoan. Mọi người lấy lại két rồi thì nghe em nói cái này...'},
-  {who:'yta', expr:'normal', text:'Trong két KHÔNG CHỈ CÓ TIỀN đâu. Có một tập HỒ SƠ. Em đọc rồi. Nó viết về... ANH KHẢI đấy.', pfx:true},
+  {who:'yta', expr:'normal', text:'Trong két KHÔNG CHỈ CÓ TIỀN đâu. Có một tập HỒ SƠ. Em đọc rồi. Nó viết về... ANH LUCIEN đấy.', pfx:true},
   {who:'khai', expr:'shock', text:'...Cái gì?'},
   {who:'sys', text:'Không khí chợ đen đông cứng. Ai đó làm rơi ly trà sữa. Chính là Y tá Hồng. Cô ấy nhặt lên uống tiếp. Nhưng không khí vẫn đông cứng.'},
 ],
@@ -339,8 +342,8 @@ c4_solve: [
 /* ---------- CHƯƠNG 5 ---------- */
 c5_twist: [
   {bg:'night'}, {music:'sad'},
-  {who:'yta', expr:'normal', text:'Hồ sơ đó ghi: "KHẢI — cựu trưởng phòng tín dụng NGÂN HÀNG ĐẠI PHÁT. Bị sa thải vì biển thủ 5 tỷ." Bà Tư mua hồ sơ này để... phòng thân.'},
-  {who:'chau', expr:'shock', text:'Khải?! BIỂN THỦ 5 TỶ?! Anh... anh là TRÙM LỪA ĐẢO thật hả?!', pfx:true},
+  {who:'yta', expr:'normal', text:'Hồ sơ đó ghi: "LUCIEN — cựu trưởng phòng tín dụng NGÂN HÀNG ĐẠI PHÁT. Bị sa thải vì biển thủ 5 tỷ." Bà Tư mua hồ sơ này để... phòng thân.'},
+  {who:'chau', expr:'shock', text:'Lucien?! BIỂN THỦ 5 TỶ?! Anh... anh là TRÙM LỪA ĐẢO thật hả?!', pfx:true},
   {who:'khai', expr:'gloom', text:'...Không phải anh biển thủ. Là GIÁM ĐỐC. Ông ta rút ruột quỹ, rồi đổ hết lên đầu anh — vì anh là đứa phát hiện ra.'},
   {who:'khai', expr:'angry', text:'Bằng chứng gốc nằm trong KÉT NGÂN HÀNG. Vì thế anh mới liều... cướp chính nơi mình từng làm việc. Anh cần tờ SAO KÊ GỐC đó.'},
   {who:'khai', expr:'gloom', text:'Hai năm qua anh gõ cửa từng nơi. Đồng nghiệp cũ chặn số. Bạn thân lảng tránh. Đến mẹ anh... cũng chỉ dám hỏi nhỏ một câu: "Con... có làm thật không?"'},
@@ -366,11 +369,11 @@ c5_twist: [
   ]},
   {who:'lam', expr:'angry', text:'ĐỨNG IM! CẢNH SÁT ĐÂY!', pfx:true},
   {fx:'shake'}, {sfx:'siren'},
-  {who:'lam', expr:'normal', text:'Khải. Cuối cùng cũng tìm ra cậu. Lệnh bắt: tình nghi cướp ngân hàng Đại Phát. Về đồn.'},
+  {who:'lam', expr:'normal', text:'Lucien. Cuối cùng cũng tìm ra cậu. Lệnh bắt: tình nghi cướp ngân hàng Đại Phát. Về đồn.'},
   {who:'chau', expr:'shock', text:'Khoan đã chú ơi!! Anh ấy bị OAN!! À không, vụ cướp thì đúng ảnh làm, nhưng mà oan cái KHÁC!!'},
   {who:'lam', expr:'gloom', text:'"Cướp thì đúng nhưng oan cái khác." Tôi làm nghề 25 năm chưa nghe câu nào lạ vậy.'},
   {who:'khai', expr:'normal', text:'{ten}. Nghe anh. HỒ SƠ trong két của Bà Tư — đó là chìa khóa. Phần còn lại... em quyết định. Anh tin em.'},
-  {who:'sys', text:'Đội trưởng Lâm giải Khải về đồn. Trong tay {ten} là tập hồ sơ nóng bỏng. Trước mặt là hai con đường...'},
+  {who:'sys', text:'Đội trưởng Lâm giải Lucien về đồn. Trong tay {ten} là tập hồ sơ nóng bỏng. Trước mặt là hai con đường...'},
   {do:()=>{
     Game.state.unlocked.doncs = true;
     World.refreshStatic();
@@ -384,14 +387,14 @@ c5_choice: [
     {ic:'😇', label:'ĐEM HỒ SƠ NỘP CHO ĐỘI TRƯỞNG LÂM — chơi bài công lý', do:()=>{ Game.state.route='nop'; }, reply:[
       {who:'chau', expr:'normal', text:'Cướp ngân hàng thì tôi đứng canh cửa được. Nhưng lần này... phải làm cho ĐÚNG. Đến đồn cảnh sát!'},
     ]},
-    {ic:'😈', label:'ĐỘT NHẬP ĐỒN, CỨU KHẢI TRƯỚC — chơi bài liều', do:()=>{ Game.state.route='ruot'; }, reply:[
-      {who:'chau', expr:'angry', text:'Công lý xử lý sau. ĐỒNG BỌN trước! Chờ tôi, Khải!'},
+    {ic:'😈', label:'ĐỘT NHẬP ĐỒN, CỨU LUCIEN TRƯỚC — chơi bài liều', do:()=>{ Game.state.route='ruot'; }, reply:[
+      {who:'chau', expr:'angry', text:'Công lý xử lý sau. ĐỒNG BỌN trước! Chờ tôi, Lucien!'},
     ]},
   ]},
 ],
 c5_ruot_prep: [
   {bg:'night'}, {music:'tense'},
-  {who:'chau', expr:'normal', text:'Kế hoạch: hóa trang thành CẢNH SÁT TẬP SỰ, lẻn vào, tìm phòng tạm giữ, cõng Khải chạy. Có gì khó đâu!'},
+  {who:'chau', expr:'normal', text:'Kế hoạch: hóa trang thành CẢNH SÁT TẬP SỰ, lẻn vào, tìm phòng tạm giữ, cõng Lucien chạy. Có gì khó đâu!'},
   {who:'sys', text:'Rất nhiều thứ khó. Nhưng tinh thần là chính.'},
 ],
 c5_ruot_end: [
@@ -402,7 +405,7 @@ c5_ruot_end: [
   {who:'sys', text:'Trong túi áo là một chiếc USB dán nhãn "QUỸ ĐEN — GĐ NH ĐẠI PHÁT — TUYỆT MẬT". Kèm mật khẩu dán luôn bên cạnh: "123456".'},
   {who:'chau', expr:'shock', text:'Mật khẩu quỹ đen 5 tỷ là 123456?!'},
   {who:'khai', expr:'gloom', text:'Giám đốc mà. Não để hết vào việc đổ tội người khác rồi.'},
-  {who:'sys', text:'Hóa ra Lâm tạm giữ đồ vật thu được từ xe của GIÁM ĐỐC — và bộ đồ Khải mặc chính là đồ niêm phong nhầm. Số tiền truy ra được: 500 triệu "chảy" về ví hai người một cách... khó giải thích.'},
+  {who:'sys', text:'Hóa ra Lâm tạm giữ đồ vật thu được từ xe của GIÁM ĐỐC — và bộ đồ Lucien mặc chính là đồ niêm phong nhầm. Số tiền truy ra được: 500 triệu "chảy" về ví hai người một cách... khó giải thích.'},
   {do:()=>{ Game.addMoney(500, 'quỹ đen của giám đốc (khó giải thích)'); Game.addTrust(15); Game.addDR(15, 'vượt ngục + cầm nhầm 500 triệu'); }},
   {who:'khai', expr:'worried', text:'Em biết là giữ số tiền này thì ta chính thức thành TỘI PHẠM THẬT đúng không?'},
   {who:'chau', expr:'smug', text:'Tội phạm có tiền. Khác tội phạm nghèo lắm đó.'},
@@ -414,7 +417,7 @@ c5_ruot_end: [
 c5_nop_pre: [
   {bg:'police'}, {music:'tense'},
   {who:'lam', expr:'normal', text:'Cô là đồng phạm vụ ngân hàng. Giờ tự đi vào đồn nộp mình kèm một tập hồ sơ. Tôi nên cảm động hay nên còng tay cô trước?'},
-  {who:'chau', expr:'worried', text:'Chú đọc hồ sơ trước đã! Giám đốc Đại Phát biển thủ 5 tỷ, đổ tội cho Khải, còn gài cả công ty cũ của cháu!'},
+  {who:'chau', expr:'worried', text:'Chú đọc hồ sơ trước đã! Giám đốc Đại Phát biển thủ 5 tỷ, đổ tội cho Lucien, còn gài cả công ty cũ của cháu!'},
   {who:'lam', expr:'think', text:'...Hồ sơ này. Nếu là thật, đây là vụ lớn nhất sự nghiệp của tôi. Nếu là giả, cô vào tù chung phòng với bạn cô.'},
   {who:'lam', expr:'normal', text:'Tôi sẽ hỏi cô vài câu. Tôi mà thấy cô CHỚP MẮT GIAN DỐI một cái là xong phim. Nhưng nếu cô bắt được TÔI đang lung lay... thì cô thắng.'},
   {who:'chau', expr:'think', text:'(Đấu trí với đội trưởng 25 năm kinh nghiệm... Nhìn kỹ! Lúc nào mặt ổng DAO ĐỘNG là lúc ổng sắp tin mình!)'},
@@ -422,11 +425,11 @@ c5_nop_pre: [
 c5_nop_end: [
   {bg:'police'}, {music:'lofi'},
   {who:'lam', expr:'gloom', text:'...Được. Tôi tin cô. Thật ra phòng kỹ thuật vừa xác minh xong: chữ ký trong hồ sơ khớp với giám đốc. Lệnh bắt ông ta đang được ký.'},
-  {who:'chau', expr:'sparkle', text:'VẬY KHẢI ĐƯỢC THẢ CHỨ Ạ?!'},
+  {who:'chau', expr:'sparkle', text:'VẬY LUCIEN ĐƯỢC THẢ CHỨ Ạ?!'},
   {who:'lam', expr:'normal', text:'Được thả. Tội cướp vẫn treo đó, nhưng tình tiết "cướp để minh oan" + hợp tác điều tra... tòa sẽ nhẹ tay. Án treo là cùng.'},
   {who:'lam', expr:'smug', text:'Mà này cô kia. Cô thẩm vấn tôi ngược. 25 năm chưa ai làm vậy. Cô... có muốn làm CỐ VẤN cho đội trọng án không? Lương thấp, việc nhiều, nguy hiểm cao.'},
   {who:'chau', expr:'shock', text:'Mô tả công việc tệ vậy mà chú nói như đang khoe?!'},
-  {who:'lam', expr:'normal', text:'À, trước khi cô về. Thằng Khải lúc bị tạm giữ cứ dặn đi dặn lại tôi một câu: "Nếu con bé có tới, đừng quát nó. Nó ngoài miệng mạnh mẽ vậy thôi, chứ tối nào về lều cũng khóc."'},
+  {who:'lam', expr:'normal', text:'À, trước khi cô về. Thằng Lucien lúc bị tạm giữ cứ dặn đi dặn lại tôi một câu: "Nếu con bé có tới, đừng quát nó. Nó ngoài miệng mạnh mẽ vậy thôi, chứ tối nào về lều cũng khóc."'},
   {who:'chau', expr:'shock', text:'AI?! AI KHÓC?! Tôi chỉ bị bụi lều xiếc bay vào mắt... MỖI ĐÊM thôi!!', pfx:true},
   {who:'lam', expr:'gloom', text:'Ừ. Bụi. Loại bụi tên là "cuộc đời". Chú cũng hít loại đó 25 năm nay rồi.'},
   {do:()=>{ Game.addTrust(8); Game.addDR(-10, 'đứng về phía công lý'); Game.state.flags.heroOffer = true; }},
@@ -496,16 +499,16 @@ c6_heart_low: [
 /* ================================================= CẮT CẢNH TRANH */
 panels: {
 c1_robbery: [
-  {chars:[['khai','sparkle']], bgc:'#dff1ff', text:'Khải mở được két! Bên trong: TIỀN! RẤT NHIỀU TIỀN! Kế hoạch hoàn hảo... trong đúng 4 giây.'},
+  {chars:[['khai','sparkle']], bgc:'#dff1ff', text:'Lucien mở được két! Bên trong: TIỀN! RẤT NHIỀU TIỀN! Kế hoạch hoàn hảo... trong đúng 4 giây.'},
   {chars:[['baove','angry']], bgc:'#ffe3e3', fx:'boom', text:'"CHÁU LÀM GÌ ĐẤY?!" — Bác bảo vệ VỀ HƯU quay lại lấy hộp cơm để quên. Trên tay: GHẾ NHỰA GIA TRUYỀN.'},
-  {chars:[['khai','pain']], bgc:'#fff3c4', fx:'boom', sfx:'boom', text:'CỐP! Chiếc ghế nhựa bay theo quỹ đạo hoàn hảo. Khải gục xuống cùng 0 đồng chiến lợi phẩm. Chuông báo động: RÉO RẮT KHẮP PHỐ.'},
+  {chars:[['khai','pain']], bgc:'#fff3c4', fx:'boom', sfx:'boom', text:'CỐP! Chiếc ghế nhựa bay theo quỹ đạo hoàn hảo. Lucien gục xuống cùng 0 đồng chiến lợi phẩm. Chuông báo động: RÉO RẮT KHẮP PHỐ.'},
   {chars:[['chau','shock'],['khai','dizzy']], bgc:'#e8d9f5', text:'{ten} làm điều duy nhất nghĩ ra được: CÕNG tên chủ mưu bỏ chạy. "SAO ANH NẶNG VẬY?!" — "CƠ BẮP... CỦA CÔNG LÝ..."'},
 ],
 c2_kidney: [
   {chars:[['yta','happy']], bgc:'#ffe9f0', text:'Y tá Hồng cầm xấp giấy, mỉm cười: "Chị ký đủ rồi nha~". Có tờ giấy nào đó vừa được... TRÁO vào lúc nào không ai biết.'},
   {chars:[['yta','evil']], bgc:'#e8d9f5', fx:'boom', text:'"Giấy XUẤT VIỆN hả~? Không~ Đây là ĐƠN HIẾN THẬN TỰ NGUYỆN có chữ ký người giám hộ~ Cảm ơn chị đã đóng góp cho y học~"'},
-  {emoji:KIDNEY, bgc:'#d3f6e9', sfx:'whoosh', text:'Một quả thận khỏe mạnh lên đường đến với chủ nhân mới. Nó thậm chí còn được đưa tiễn chu đáo hơn cả Khải ngày nghỉ việc.'},
-  {chars:[['chau','cry'],['khai','dizzy']], bgc:'#fff3c4', text:'Tổng thiệt hại: 1 quả thận, toàn bộ tiền đền bù, và niềm tin của Khải vào loài người (đã thấp sẵn).'},
+  {emoji:KIDNEY, bgc:'#d3f6e9', sfx:'whoosh', text:'Một quả thận khỏe mạnh lên đường đến với chủ nhân mới. Nó thậm chí còn được đưa tiễn chu đáo hơn cả Lucien ngày nghỉ việc.'},
+  {chars:[['chau','cry'],['khai','dizzy']], bgc:'#fff3c4', text:'Tổng thiệt hại: 1 quả thận, toàn bộ tiền đền bù, và niềm tin của Lucien vào loài người (đã thấp sẵn).'},
 ],
 c5_ruot_break: [
   {chars:[['chau','smug']], bgc:'#d6e4ff', text:'Nửa đêm. Một "cảnh sát tập sự" mặt lạ đi vào đồn với tờ giấy tự in: "LỆNH ĐIỀU CHUYỂN PHẠM NHÂN (bản thật 100%)".'},
@@ -548,14 +551,14 @@ flow: [
       {title:'GIẤY CAM KẾT TRẢ VIỆN PHÍ', fine:'Cam kết thanh toán 100% viện phí. Kèm dòng chữ nhỏ: "và tiền trà nước cho phòng hành chính".', good:true},
       {title:'ĐƠN HIẾN GIỌNG HÁT', fine:'Tình nguyện hát karaoke phục vụ khoa hồi sức mỗi tối thứ 6, hợp đồng 10 năm.', good:false},
       {title:'ĐƠN ĐĂNG KÝ ĐA CẤP "THẬN PHÁT LỘC"', fine:'Chỉ cần giới thiệu 2 người thân... à mà thôi bạn hiểu rồi đấy.', good:false},
-      {title:'GIẤY XUẤT VIỆN', fine:'Cho phép bệnh nhân Khải xuất viện. Chữ RẤT nhỏ ở góc: "xem điều khoản đặc biệt mặt sau (mặt sau bị dán băng keo)".', good:true, time:5},
+      {title:'GIẤY XUẤT VIỆN', fine:'Cho phép bệnh nhân Lucien xuất viện. Chữ RẤT nhỏ ở góc: "xem điều khoản đặc biệt mặt sau (mặt sau bị dán băng keo)".', good:true, time:5},
     ]}, after(res){
       if(res.wrong === 0) Game.addDR(-5, 'đọc kỹ trước khi ký (lần đầu trong đời)');
       else Game.addDR(Math.min(15, res.wrong*6), 'ký ' + res.wrong + ' tờ giấy oan nghiệt');
     }},
     {panels:'c2_kidney'},
     {vn:'c2_broke'},
-    {map:{playerAt:{x:1940, y:430}, quest:'Đưa Khải về "căn cứ" 🎪', music:'lofi',
+    {map:{playerAt:{x:1940, y:430}, quest:'Đưa Lucien về "căn cứ" 🎪', music:'lofi',
       goto:{x:1280, y:800, ic:'🎪', label:'Khu ẩn náu'}}},
     {vn:'c2_home'},
 ]},
@@ -697,7 +700,7 @@ flow: [
       if(!res.success) Game.addDR(12, 'bị nghi ngờ ngay từ cổng đồn');
     }},
     {panels:'c5_ruot_break', when:()=>Game.state.route==='ruot'},
-    {mg:'escape', when:()=>Game.state.route==='ruot', opts:{night:true, title:'🌙 CÕNG KHẢI VƯỢT "NGỤC"'},
+    {mg:'escape', when:()=>Game.state.route==='ruot', opts:{night:true, title:'🌙 CÕNG LUCIEN VƯỢT "NGỤC"'},
       after(res){ if(!res.success) Game.addDR(10, 'đâm đổ ' + res.hits + ' chậu cây của đồn'); }},
     {vn:'c5_ruot_end', when:()=>Game.state.route==='ruot'},
     /* --- Nhánh NỘP HỒ SƠ --- */
@@ -727,13 +730,13 @@ endings: {
   than: {
     cls:'end-than', emoji:KIDNEY, tag:'KẾT THÚC BÍ ẨN', title:'"THẬN ƠI THẬN"',
     text:`Điểm Rắc Rối của hai người cao đến mức... HỘI NHỮNG NGƯỜI MỘT THẬN tìm đến tận lều. "Chúng tôi theo dõi hai bạn từ lâu. Chưa ai gây rối có TÂM đến vậy. Mời hai bạn làm đại sứ thương hiệu."
-    Và thế là {ten} cùng Khải trở thành gương mặt quảng cáo cho chuỗi phòng khám "Thận Trọng Từng Bước". Quả thận năm xưa — theo lời đồn — đang sống tốt trong người một đại gia trà sữa, thỉnh thoảng còn gửi thiệp Tết về.
-    Một tối nọ, {ten} bắt gặp Khải đứng xoa xoa hông trái. "Còn đau hả?" — "Không. Anh đang tính sổ. Mất một quả thận... mà đổi được một người không bao giờ bỏ anh lại phía sau." Anh cười. "Lời to nhất đời anh đấy."
+    Và thế là {ten} cùng Lucien trở thành gương mặt quảng cáo cho chuỗi phòng khám "Thận Trọng Từng Bước". Quả thận năm xưa — theo lời đồn — đang sống tốt trong người một đại gia trà sữa, thỉnh thoảng còn gửi thiệp Tết về.
+    Một tối nọ, {ten} bắt gặp Lucien đứng xoa xoa hông trái. "Còn đau hả?" — "Không. Anh đang tính sổ. Mất một quả thận... mà đổi được một người không bao giờ bỏ anh lại phía sau." Anh cười. "Lời to nhất đời anh đấy."
     Có những thứ mất đi để dạy ta biết thứ gì không được phép mất.`,
   },
   love: {
     cls:'end-love', emoji:'💕', tag:'KẾT THÚC TÌNH CẢM', title:'"NỢ ĐỜI NHAU"',
-    text:`Dưới mái lều thủng lỗ chỗ — nơi ánh trăng rơi vào như tiền lẻ ai đánh rơi — Khải đưa {ten} một tờ giấy viết tay: "HỢP ĐỒNG NỢ TRỌN ĐỜI. Bên A nợ bên B: một quả thận, 500 lần cằn nhằn, và một trái tim (đã qua sử dụng, nhưng còn tốt). Bên B nợ bên A: một chỗ dựa, mọi bữa sáng từ nay về sau, và toàn bộ phần đùi gà trong tương lai."
+    text:`Dưới mái lều thủng lỗ chỗ — nơi ánh trăng rơi vào như tiền lẻ ai đánh rơi — Lucien đưa {ten} một tờ giấy viết tay: "HỢP ĐỒNG NỢ TRỌN ĐỜI. Bên A nợ bên B: một quả thận, 500 lần cằn nhằn, và một trái tim (đã qua sử dụng, nhưng còn tốt). Bên B nợ bên A: một chỗ dựa, mọi bữa sáng từ nay về sau, và toàn bộ phần đùi gà trong tương lai."
     Điều khoản cuối cùng in đậm: "Hai khoản nợ KHÔNG được phép triệt tiêu — để hai bên buộc phải ở cạnh nhau mà đòi nợ nhau... vô thời hạn."
     Lần đầu tiên trong đời, {ten} đọc kỹ từng chữ. Rồi ký. Chữ ký thứ 19 của cô — và là chữ ký duy nhất cô biết chắc mình sẽ không bao giờ hối hận.
     Nợ tiền rồi sẽ trả xong. Nhưng có những món nợ người ta cố tình không trả hết — vì trả hết rồi... lấy cớ gì để ở bên nhau?`,
@@ -741,13 +744,13 @@ endings: {
   hero: {
     cls:'end-hero', emoji:'👮', tag:'KẾT THÚC CÔNG LÝ', title:'"NGƯỜI HÙNG BẤT ĐẮC DĨ"',
     text:`Giám đốc Đại Phát bị bắt cùng 5 tỷ quỹ đen. Báo chí giật tít: "NỮ THÁM TỬ TAY NGANG PHÁ ÁN THẾ KỶ (từng khai sai giấy tờ 17 lần)". {ten} thành cố vấn đội trọng án — "Linh Cảm Ngẫu Nhiên" được ghi hẳn vào biên chế là kỹ năng đặc biệt.
-    Khải được minh oan, mở quán cà phê "NỢ CŨ" ngay cạnh đồn. Mỗi sáng anh pha sẵn một ly đặt trên bàn cố vấn {ten}, hóa đơn ghi: "Trả dần một món nợ khác — khoản này xin phép trả... cả đời."
+    Lucien được minh oan, mở quán cà phê "NỢ CŨ" ngay cạnh đồn. Mỗi sáng anh pha sẵn một ly đặt trên bàn cố vấn {ten}, hóa đơn ghi: "Trả dần một món nợ khác — khoản này xin phép trả... cả đời."
     Có lần phóng viên hỏi: "Vụ án nào khó nhất sự nghiệp của chị?" Cô nhìn sang quán cà phê bên kia đường, cười: "Vụ tìm ra một người tử tế trốn trong cái mác 'chuyên gia tài chính phi truyền thống'. Phá án đó tốn của tôi một quả thận của người khác... và nguyên một trái tim của mình."`,
   },
   rich: {
     cls:'end-rich', emoji:'💰', tag:'KẾT THÚC GIÀU SANG (?)', title:'"TỶ PHÚ PHI PHÁP"',
-    text:`Với số tiền "khó giải thích nguồn gốc", {ten} và Khải mở chuỗi trà sữa "TIỆM NƯỚC HAI TA" — tuần nào cũng đổi tên, đổi địa điểm, đổi biển hiệu, vì lý do "phong thủy" (và vì lệnh truy nã). Khách ruột: Y tá Hồng (50 ly/tuần), Bà Tư (đến thu tiền bảo kê nhưng ở lại vì trà ngon), và một khách bí ẩn đội mũ kê-pi luôn ngồi bàn góc, không bao giờ bắt ai...
-    Một tối nọ, đếm tiền xong, Khải hỏi: "Giàu rồi đấy. Em còn thiếu gì nữa không?"
+    text:`Với số tiền "khó giải thích nguồn gốc", {ten} và Lucien mở chuỗi trà sữa "TIỆM NƯỚC HAI TA" — tuần nào cũng đổi tên, đổi địa điểm, đổi biển hiệu, vì lý do "phong thủy" (và vì lệnh truy nã). Khách ruột: Y tá Hồng (50 ly/tuần), Bà Tư (đến thu tiền bảo kê nhưng ở lại vì trà ngon), và một khách bí ẩn đội mũ kê-pi luôn ngồi bàn góc, không bao giờ bắt ai...
+    Một tối nọ, đếm tiền xong, Lucien hỏi: "Giàu rồi đấy. Em còn thiếu gì nữa không?"
     {ten} nhìn quanh: tiệm trà chật ních tiếng cười, gã đồng bọn một-quả-thận đang lau ly, và lệnh truy nã dán ngoài cột điện có hình hai đứa cười toe toét. Lần đầu tiên kể từ ngày thất nghiệp, cô trả lời không cần suy nghĩ: "Không. Đủ rồi."
     Hóa ra "đủ" chưa bao giờ là một con số trong tài khoản. "Đủ" là có một người cùng mình chạy trốn... khắp thế gian.`,
   },

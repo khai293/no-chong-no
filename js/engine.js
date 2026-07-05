@@ -16,7 +16,7 @@ const Game = {
       chapter: 0,
       dr: 20, trust: 30, money: -200,
       flags: {},
-      route: null,          // 'ruot' (cứu Khải) | 'nop' (giao bằng chứng)
+      route: null,          // 'ruot' (cứu Lucien) | 'nop' (giao bằng chứng)
       solved: false,        // giải đúng vụ án ch4
       unlocked: {taichinh:true, anau:false, choden:false, benhvien:false, doncs:false},
     };

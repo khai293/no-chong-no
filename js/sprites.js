@@ -12,7 +12,7 @@ const KIDNEY = `<svg viewBox="0 0 64 64" style="height:1.05em;vertical-align:-0.
 const CHARDEF = {
   chau : {name:'Châu',  tag:'#ff6fa5', skin:'#ffdfc9', hair:'#7a4b3a', hairHi:'#a06b52',
           cloth:'#ffd166', cloth2:'#ff9f1c', style:'chau'},
-  khai : {name:'Khải',  tag:'#4cc9f0', skin:'#ffe6d0', hair:'#23222e', hairHi:'#44415c',
+  khai : {name:'Lucien',  tag:'#4cc9f0', skin:'#ffe6d0', hair:'#23222e', hairHi:'#44415c',
           cloth:'#3a3f58', cloth2:'#f5f5f7', style:'khai'},
   batu : {name:'Bà Tư', tag:'#7d5ba6', skin:'#f5cfa8', hair:'#7d5ba6', hairHi:'#a07fd0',
           cloth:'#c2185b', cloth2:'#ffd166', style:'batu'},
@@ -28,6 +28,14 @@ const CHARDEF = {
           cloth:'#19b464', cloth2:'#0d7a42', style:'vinh'},
   baove: {name:'Bác Bảo Vệ', tag:'#5b7db1', skin:'#eec39a', hair:'#b9b9c4', hairHi:'#d6d6de',
           cloth:'#33507a', cloth2:'#b9c6dd', style:'baove'},
+  me   : {name:'Bà Mai (mẹ)', tag:'#d9838f', skin:'#f2cfae', hair:'#8a7a6d', hairHi:'#a89a8c',
+          cloth:'#bfe0d8', cloth2:'#d9a0a8', style:'me'},
+  bac  : {name:'GS. Bạc Cận Ngôn', tag:'#26314e', skin:'#ffe6d0', hair:'#1d1b26', hairHi:'#3a3750',
+          cloth:'#26314e', cloth2:'#7d1f2e', style:'bac'},
+  tahan: {name:'Quý Ngài Hoa Hồng', tag:'#4a2440', skin:'#f5e8de', hair:'#cfd3e8', hairHi:'#e8ebf7',
+          cloth:'#4a2440', cloth2:'#c9a227', style:'tahan'},
+  chuno: {name:'Anh Sáu Lãi', tag:'#b3541e', skin:'#e0a878', hair:'#c0392b', hairHi:'#e74c3c',
+          cloth:'#3b3b3b', cloth2:'#ffd166', style:'chuno'},
 };
 
 /* ---------- các mảnh khuôn mặt ---------- */
@@ -141,6 +149,15 @@ function _hairBack(c){
     case 'baove': return `<ellipse cx="130" cy="112" rx="84" ry="80" fill="${c.hair}"/>`;
     case 'vinh': return '';
     case 'camdo': return '';
+    case 'me': return `<ellipse cx="130" cy="114" rx="86" ry="82" fill="${c.hair}"/>
+      <circle cx="196" cy="180" r="26" fill="${c.hair}"/>
+      <circle cx="196" cy="180" r="26" fill="none" stroke="${c.hairHi}" stroke-width="4" stroke-dasharray="8 10"/>`;
+    case 'bac': return `<ellipse cx="130" cy="108" rx="85" ry="82" fill="${c.hair}"/>`;
+    case 'tahan': return `<ellipse cx="130" cy="112" rx="90" ry="86" fill="${c.hair}"/>
+      <path d="M 44 128 Q 30 210 50 258 L 82 246 Q 62 190 64 138 Z" fill="${c.hair}"/>
+      <path d="M 216 128 Q 230 210 210 258 L 178 246 Q 198 190 196 138 Z" fill="${c.hair}"/>
+      <path d="M 52 150 Q 44 210 56 244" stroke="${c.hairHi}" stroke-width="6" fill="none" stroke-linecap="round"/>`;
+    case 'chuno': return '';
     default: return `<ellipse cx="130" cy="110" rx="88" ry="84" fill="${c.hair}"/>`;
   }
 }
@@ -157,6 +174,13 @@ function _hairFront(c){
     case 'baove': return `<path d="M 56 98 Q 70 68 130 64 Q 190 68 204 98 L 200 108 Q 130 88 60 108 Z" fill="${c.hair}"/>`;
     case 'camdo': return `<ellipse cx="100" cy="64" rx="18" ry="8" fill="#fff" opacity=".5" transform="rotate(-18 100 64)"/>`;
     case 'vinh': return '';
+    case 'me': return `<path d="M 50 118 Q 48 56 130 50 Q 212 56 210 118 Q 188 88 160 100 Q 144 76 116 92 Q 88 78 74 102 Q 60 96 50 118 Z" fill="${c.hair}"/>
+      <path d="M 70 82 Q 100 64 134 68" stroke="${c.hairHi}" stroke-width="6" fill="none" stroke-linecap="round"/>`;
+    case 'bac': return `<path d="M 48 106 Q 46 40 130 36 Q 214 40 212 106 Q 206 76 176 84 Q 186 54 140 66 Q 100 50 82 80 Q 62 76 48 106 Z" fill="${c.hair}"/>
+      <path d="M 92 62 Q 130 46 172 58" stroke="${c.hairHi}" stroke-width="6" fill="none" stroke-linecap="round"/>`;
+    case 'tahan': return `<path d="M 46 122 Q 42 50 130 44 Q 218 50 214 122 Q 200 88 174 100 Q 168 68 138 86 Q 112 62 94 92 Q 68 84 46 122 Z" fill="${c.hair}"/>
+      <path d="M 82 74 Q 118 56 156 64" stroke="${c.hairHi}" stroke-width="5" fill="none" stroke-linecap="round"/>`;
+    case 'chuno': return '';
     default: return '';
   }
 }
@@ -188,6 +212,27 @@ function _accessory(c){
       <path d="M 96 160 Q 112 172 126 162 M 134 162 Q 148 172 164 160" stroke="#b9b9c4" stroke-width="6" fill="none" stroke-linecap="round"/>`;
     case 'camdo': return `<path d="M 76 156 Q 78 210 130 212 Q 182 210 184 156 Q 168 176 130 176 Q 92 176 76 156 Z" fill="#3f3f3f"/>
       <circle cx="130" cy="250" r="9" fill="#c9a227" stroke="#2a2333" stroke-width="3"/>`;
+    case 'me': return `<path d="M 60 262 Q 130 232 200 262 L 196 292 Q 130 268 64 292 Z" fill="${c.cloth2}" stroke="#2a2333" stroke-width="4"/>
+      <circle cx="88" cy="262" r="8" fill="#ffd166" stroke="#2a2333" stroke-width="3"/>
+      <g stroke="#c9a08a" stroke-width="3" stroke-linecap="round" opacity=".6">
+        <path d="M 78 148 q 8 4 16 2"/><path d="M 166 148 q 8 4 16 2"/></g>`;
+    case 'bac': return `<g stroke="#2a2333" stroke-width="4">
+      <path d="M 96 224 L 118 262 L 106 292 L 78 244 Z" fill="#1c2439"/>
+      <path d="M 164 224 L 142 262 L 154 292 L 182 244 Z" fill="#1c2439"/>
+      <path d="M 124 240 L 136 240 L 140 276 L 130 292 L 120 276 Z" fill="${c.cloth2}"/></g>`;
+    case 'tahan': return `<g>
+      <circle cx="86" cy="252" r="13" fill="#2a1a2e" stroke="#2a2333" stroke-width="3"/>
+      <circle cx="86" cy="252" r="6" fill="#6d1f3e"/>
+      <path d="M 86 264 q -4 14 4 22" stroke="#2e5c3f" stroke-width="4" fill="none"/>
+      <path d="M 60 240 Q 130 218 200 240" stroke="${c.cloth2}" stroke-width="4" fill="none" opacity=".8"/></g>`;
+    case 'chuno': return `<g>
+      <path d="M 50 96 Q 130 70 210 96 L 208 122 Q 130 98 52 122 Z" fill="#c0392b" stroke="#2a2333" stroke-width="4"/>
+      <circle cx="76" cy="106" r="4" fill="#fff" opacity=".7"/><circle cx="128" cy="92" r="4" fill="#fff" opacity=".7"/>
+      <circle cx="180" cy="104" r="4" fill="#fff" opacity=".7"/>
+      <path d="M 210 108 L 236 96 L 232 122 Z" fill="#c0392b" stroke="#2a2333" stroke-width="4"/>
+      <path d="M 92 234 Q 130 262 168 234" stroke="#ffd166" stroke-width="8" fill="none"/>
+      <circle cx="130" cy="252" r="11" fill="#ffd166" stroke="#2a2333" stroke-width="3"/>
+      <text x="130" y="258" text-anchor="middle" font-size="14" font-weight="800" fill="#2a2333">$</text></g>`;
     default: return '';
   }
 }

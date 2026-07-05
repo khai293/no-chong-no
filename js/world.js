@@ -408,7 +408,7 @@ const World = {
     // người chơi
     const p = this.player;
     drawChibi(g, p.x, p.y, p.dir, p.frame, 'chau', {walking:p.walking});
-    // đồng đội đi theo (Khải) — trang trí khi flag bật
+    // đồng đội đi theo (Lucien) — trang trí khi flag bật
     if(Game.state.flags.khaiFollow){
       const off = {down:[-34,-20], up:[34,20], left:[34,-16], right:[-34,-16]}[p.dir] || [-34,-20];
       drawChibi(g, p.x + off[0], p.y + off[1], p.dir, p.frame - 6, 'khai', {walking:p.walking});

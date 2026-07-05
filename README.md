@@ -6,9 +6,9 @@
 
 ## 📖 Cốt truyện
 
-Ngày thất nghiệp đầu tiên (lý do: khai sai giấy tờ 17 lần), nữ chính gặp **Khải** — gã điển trai tự xưng "chuyên gia tài chính phi truyền thống" — rủ đi cướp ngân hàng với lời hứa *"Em chỉ cần đứng canh cửa thôi. Dễ lắm."*
+Ngày thất nghiệp đầu tiên (lý do: khai sai giấy tờ 17 lần), nữ chính gặp **Lucien** — gã điển trai tự xưng "chuyên gia tài chính phi truyền thống" — rủ đi cướp ngân hàng với lời hứa *"Em chỉ cần đứng canh cửa thôi. Dễ lắm."*
 
-Kết quả: cướp thất bại, Khải bị ghế nhựa hạ gục, và trong lúc hoảng loạn ở bệnh viện, nữ chính **vô tình ký giấy hiến thận của anh** vì tưởng là giấy xuất viện. 🫁
+Kết quả: cướp thất bại, Lucien bị ghế nhựa hạ gục, và trong lúc hoảng loạn ở bệnh viện, nữ chính **vô tình ký giấy hiến thận của anh** vì tưởng là giấy xuất viện. 🫁
 
 Cả hai trắng tay — và giờ bị ràng buộc vào nhau bởi... NỢ.
 
@@ -20,8 +20,8 @@ Cả hai trắng tay — và giờ bị ràng buộc vào nhau bởi... NỢ.
 | Tương tác | E hoặc chạm |
 | Thoại tiếp | Space / Enter / nhấp chuột |
 
-- **6 chương** với bản đồ 5 khu vực mở khóa dần
-- **6 minigame**: canh cửa ngân hàng, chạy trốn, ký giấy thần tốc, hóa trang, đọc vị người nói dối, bảng suy luận
+- **14 chương** với bản đồ 5 khu vực mở khóa dần — từ vụ cướp đầu tiên, thăm mẹ ở khoa tim mạch, đại chiến hội chủ nợ, vụ "quả thận cuối cùng"... đến arc trinh thám **"Hãy Nhắm Mắt Khi Anh Đến"** (khách mời: GS. Bạc Cận Ngôn & Quý Ngài Hoa Hồng)
+- **7 minigame**: canh cửa ngân hàng, chạy trốn, ký giấy thần tốc, hóa trang, đọc vị người nói dối, bảng suy luận, đêm nhạc karaoke
 - **3 kiểu thoại**: 😇 Thật thà / 😈 Bịa đặt / 🤡 Vô tình hài
 - **Điểm Rắc Rối** ⚡ + **Chỉ Số Tin Tưởng** 💗 quyết định **4 kết thúc** khác nhau
 
